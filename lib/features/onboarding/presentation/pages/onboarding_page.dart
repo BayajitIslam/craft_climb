@@ -104,7 +104,11 @@ class _OnboardingPageState extends State<OnboardingPage> {
               SizedBox(height: context.spacing16),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 23.0),
-                child: PrimaryButton(onPressed: () => nextPage(context)),
+                child: PrimaryButton(
+                  borderRadius: 33,
+                  buttonName: AppStrings.next,
+                  onPressed: () => nextPage(context),
+                ),
               ),
             ],
           ),

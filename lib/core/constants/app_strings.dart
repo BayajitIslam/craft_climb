@@ -31,7 +31,7 @@ class AppStrings {
   static const String guidedbyAi = 'Guided by AI. Backed by Experts.';
   static const String getInstantExplainations =
       'Get instant explanations, learning roadmaps, test insights, and smart recommendations—right when you need them.';
- 
+
   //Select Who You Are
   static const String continueAs = 'Continue as';
   static const String tellUsWhoYouAre = 'Tell us who you are';
@@ -39,4 +39,26 @@ class AppStrings {
       'Finding a job here never been easier than before';
   static const String letsRecruit =
       'Let’s recruit your great candidate faster here ';
+
+  //--------------------- Authentication --------------------
+  static const String login = 'Login';
+  static const String signUp = 'Sign Up';
+  static const String forgetPassword = 'Forget Password?';
+  static const String emailAddress = 'Email Address';
+  static const String password = 'Password';
+  static const String confirmPassword = 'Confirm Password';
+  static const String continueWithGoogle = 'Continue With Google';
+  static const String termsLogin =
+      'By continuing with any account, you agree to the Terms & Conditions and Privacy Policy of our app.';
+  static const String termsSignUp =
+      'By clicking the “sign up” button, you accept the terms of the Privacy Policy.';
+  static const String or = 'or';
+  static const String enterYourOtp = 'Enter Your OTP';
+  static const String resend = 'Enter Code';
+  static const String enterVerificationCode = 'Submit';
+  static const String reTypePassword = 'Re Type Password';
+  static const String sendOtp = 'Send OTP';
+  static const String resetYourPassword = 'Reset Your Password';
+  static const String confirm = 'Confirm';
+  static const String enterCode = 'Enter Code';
 }

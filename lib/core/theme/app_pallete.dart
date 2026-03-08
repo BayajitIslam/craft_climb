@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class AppPallete {
   static const Color primary = Color(0xFFFFFFFF);
-  static const Color secondary = Color(0xFF000000);
+  static const Color secondary = Color(0xFFE7E9EF);
   static const Color accent = Color(0xFF0D6EFD);
   static const Color bodyText = Color(0xFF191919);
   static const Color coolGrey = Color(0xFF191919);
@@ -19,5 +19,6 @@ class AppPallete {
   static const Color whiteD5 = Color(0xFFFFEDD5);
   static const Color accent10 = Color(0xFFCAEAFF);
   static const Color dropShadow = Color(0x26A3A3A3);
+  static const Color border = Color(0xFFCBD2E0);
   static const Color transparent = Colors.transparent;
 }

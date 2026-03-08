@@ -16,4 +16,8 @@ class AppImages {
       'assets/images/onboarding/trade person.jpg';
   static const String onboardingTrainer =
       'assets/images/onboarding/trainer.jpg';
+  
+  //Auth
+  static const String appBennar = 'assets/images/app_bennar.png';
+  static const String google = 'assets/images/auth/google.png';
 }

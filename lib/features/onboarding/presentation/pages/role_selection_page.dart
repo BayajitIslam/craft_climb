@@ -5,7 +5,7 @@ import 'package:craft_climb/core/theme/app_text_style.dart';
 import 'package:craft_climb/core/utils/app_bg.dart';
 import 'package:craft_climb/core/utils/debug_console.dart';
 import 'package:craft_climb/core/utils/screen_size.dart';
-import 'package:craft_climb/features/auth/presentation/pages/sign_in_page.dart';
+import 'package:craft_climb/features/auth/presentation/pages/login_and_signup_page.dart';
 import 'package:craft_climb/features/onboarding/presentation/widgets/role_option_card.dart';
 import 'package:flutter/material.dart';
 
@@ -57,7 +57,10 @@ class _RoleSelectionPageState extends State<RoleSelectionPage> {
     //Navigate to home
     Future.delayed(const Duration(microseconds: 200), () {
       // ignore: use_build_context_synchronously
-      Navigator.pushReplacement(context, SignInPage.route);
+      Navigator.pushReplacement(
+        context,
+        LoginAndSignupPage.routeWith(initialTab: 0),
+      );
     });
 
     //Save role
