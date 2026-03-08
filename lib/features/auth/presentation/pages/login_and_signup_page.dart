@@ -10,6 +10,7 @@ import 'package:craft_climb/features/auth/presentation/widgets/auth_field.dart';
 import 'package:craft_climb/features/auth/presentation/widgets/auth_tab_switcher.dart';
 import 'package:craft_climb/features/auth/presentation/widgets/or.dart';
 import 'package:craft_climb/features/auth/presentation/widgets/social_button.dart';
+import 'package:craft_climb/features/payment_subscription/presentation/pages/subscription_page.dart';
 import 'package:flutter/material.dart';
 
 class LoginAndSignupPage extends StatefulWidget {
@@ -109,7 +110,7 @@ class _LoginAndSignupPageState extends State<LoginAndSignupPage> {
                   onPressed: () {
                     //is login succes go home page
                     selectedTab == 0
-                        ? Navigator.pop(context)
+                        ? Navigator.push(context, SubscriptionPage.route())
                         : Navigator.push(
                             context,
                             OtpPage.route(isForgetPassword: false),

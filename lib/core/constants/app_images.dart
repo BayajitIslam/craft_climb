@@ -20,4 +20,7 @@ class AppImages {
   //Auth
   static const String appBennar = 'assets/images/app_bennar.png';
   static const String google = 'assets/images/auth/google.png';
+
+  //Subscription
+  static const String back = 'assets/icons/back.png';
 }

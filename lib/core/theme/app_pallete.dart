@@ -18,7 +18,10 @@ class AppPallete {
   static const Color white30 = Color(0x4DFFFFFF);
   static const Color whiteD5 = Color(0xFFFFEDD5);
   static const Color accent10 = Color(0xFFCAEAFF);
+  static const Color accentFB = Color(0xFFECF5FB);
   static const Color dropShadow = Color(0x26A3A3A3);
+
   static const Color border = Color(0xFFCBD2E0);
+  static const Color white10 = Color(0x1AFFFFFF);
   static const Color transparent = Colors.transparent;
 }
