@@ -1,4 +1,6 @@
 import 'package:craft_climb/core/constants/app_images.dart';
+import 'package:craft_climb/core/local_storage/local_storage.dart';
+import 'package:craft_climb/core/router/role_router.dart';
 import 'package:craft_climb/core/theme/app_pallete.dart';
 import 'package:craft_climb/core/theme/app_text_style.dart';
 import 'package:craft_climb/core/utils/app_bg.dart';
@@ -142,7 +144,10 @@ class _SubscriptionPageState extends State<SubscriptionPage> {
                 //<---------------------- Subscribe Button ----------------------->
                 PrimaryButton(
                   borderRadius: 33,
-                  onPressed: () {},
+                  onPressed: () {
+                    final role = LocalStorage.userRole;
+                    RoleRouter.goToHome(context, role);
+                  },
                   buttonName: 'Subscribe',
                 ),
 

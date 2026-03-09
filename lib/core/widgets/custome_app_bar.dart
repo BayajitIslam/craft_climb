@@ -1,5 +1,7 @@
+import 'package:craft_climb/core/constants/app_images.dart';
 import 'package:craft_climb/core/theme/app_pallete.dart';
 import 'package:craft_climb/core/theme/app_text_style.dart';
+import 'package:craft_climb/core/utils/screen_size.dart';
 import 'package:flutter/material.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -16,7 +18,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     required this.name,
     required this.role,
     this.badge,
-    this.backgroundColor = AppPallete.primary,
+    this.backgroundColor = AppPallete.accent,
     this.onChat,
     this.onNotification,
     this.onBadge,
@@ -28,15 +30,31 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      actionsPadding: EdgeInsets.only(right: context.spacing12),
       backgroundColor: backgroundColor,
       elevation: 0,
       automaticallyImplyLeading: false,
-      title: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text('$name,', style: AppTextStyle.s16w4i(color: AppPallete.whiteD5)),
-          Text(role, style: AppTextStyle.s14w4i(color: AppPallete.whiteD5)),
-        ],
+      title: Padding(
+        padding: EdgeInsets.only(left: context.spacing8),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              '$name,',
+              style: AppTextStyle.s24w7i(
+                color: AppPallete.primary,
+                fontSize: 20,
+              ),
+            ),
+            Text(
+              role,
+              style: AppTextStyle.s14w4i(
+                color: AppPallete.stroke,
+                fontSize: 12,
+              ),
+            ),
+          ],
+        ),
       ),
       actions: [
         // Badge — optional
@@ -44,36 +62,56 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           GestureDetector(
             onTap: onBadge,
             child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-              decoration: BoxDecoration(
-                color: AppPallete.white30,
-                borderRadius: BorderRadius.circular(20),
+              padding: EdgeInsets.symmetric(
+                horizontal: context.spacing16,
+                vertical: 6,
               ),
+              decoration: BoxDecoration(
+                color: AppPallete.primary,
+                borderRadius: BorderRadius.circular(333333),
+              ),
+
               child: Row(
                 children: [
-                  Text('🔥'),
+                  Image.asset(AppImages.badge, width: 20, height: 20),
                   SizedBox(width: 4),
                   Text(
                     badge!,
-                    style: AppTextStyle.s14w4i(color: AppPallete.primary),
+                    style: AppTextStyle.s14w4i(
+                      color: AppPallete.bodyText,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
                 ],
               ),
             ),
           ),
 
-        SizedBox(width: 8),
+        SizedBox(width: context.spacing8),
 
         // Chat
-        IconButton(
-          onPressed: onChat,
-          icon: Icon(Icons.chat_bubble_outline, color: AppPallete.primary),
+        Container(
+          width: 32,
+          height: 32,
+          decoration: BoxDecoration(
+            color: AppPallete.primary,
+            shape: BoxShape.circle,
+          ),
+          padding: EdgeInsets.all(8),
+          child: Image.asset(AppImages.chat, width: 24),
         ),
-
         // Notification
-        IconButton(
-          onPressed: onNotification,
-          icon: Icon(Icons.notifications_outlined, color: AppPallete.primary),
+        SizedBox(width: 4),
+        Container(
+          width: 32,
+          height: 32,
+          decoration: BoxDecoration(
+            color: AppPallete.primary,
+            shape: BoxShape.circle,
+          ),
+          padding: EdgeInsets.all(8),
+          child: Image.asset(AppImages.notification, width: 16),
         ),
 
         SizedBox(width: 8),

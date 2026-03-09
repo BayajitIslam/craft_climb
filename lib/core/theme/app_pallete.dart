@@ -24,4 +24,5 @@ class AppPallete {
   static const Color border = Color(0xFFCBD2E0);
   static const Color white10 = Color(0x1AFFFFFF);
   static const Color transparent = Colors.transparent;
+  static const Color stroke = Color(0xFFEEEEEE);
 }

@@ -44,6 +44,9 @@ class LocalStorage {
   static bool get isOnboardingCompleted =>
       _prefs?.getBool(onboardingCompleted) ?? false;
 
+  //Check role
+  static String get userRole => _prefs?.getString(role) ?? '';
+
   // ═══════════════════════════════════════════════════════════════════════
   // Generic Methods
   // ═══════════════════════════════════════════════════════════════════════
