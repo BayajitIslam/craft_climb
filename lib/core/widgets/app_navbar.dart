@@ -117,6 +117,15 @@ class AppNavbar extends StatelessWidget {
             ),
             label: 'Forum',
           ),
+          BottomNavigationBarItem(
+            icon: Image.asset(AppImages.carrerHub, width: 20),
+            activeIcon: Image.asset(
+              AppImages.carrerHub,
+              width: 22,
+              color: AppPallete.accent,
+            ),
+            label: 'Career Hub',
+          ),
         ];
       case 'trade_person':
         return [

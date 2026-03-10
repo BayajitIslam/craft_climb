@@ -3,6 +3,7 @@ import 'package:craft_climb/core/utils/app_bg.dart';
 import 'package:craft_climb/core/widgets/app_navbar.dart';
 import 'package:craft_climb/features/forum/presentation/pages/forum_page.dart';
 import 'package:craft_climb/features/tools/presentation/pages/tools_page.dart';
+import 'package:craft_climb/features/trainer/presentation/pages/my_course/my_course_page.dart';
 import 'package:craft_climb/features/trainer/presentation/pages/trainer_dashboard_page.dart';
 import 'package:flutter/material.dart';
 
@@ -22,7 +23,12 @@ class _TrainerHomePageState extends State<TrainerHomePage> {
   //SELECTED INDEX
   int selectedIndex = 0;
   //PAGES LIST
-  final List<Widget> pages = [TrainerDashboardPage(), ForumPage(), ToolsPage()];
+  final List<Widget> pages = [
+    TrainerDashboardPage(),
+    ToolsPage(),
+    ForumPage(),
+    MyCoursePage(),
+  ];
 
   @override
   Widget build(BuildContext context) {
