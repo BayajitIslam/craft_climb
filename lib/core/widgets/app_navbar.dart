@@ -99,6 +99,16 @@ class AppNavbar extends StatelessWidget {
           ),
 
           BottomNavigationBarItem(
+            icon: Image.asset(AppImages.jobs, width: 20),
+            activeIcon: Image.asset(
+              AppImages.jobs,
+              width: 22,
+              color: AppPallete.accent,
+            ),
+            label: 'Jobs',
+          ),
+
+          BottomNavigationBarItem(
             icon: Image.asset(AppImages.tools, width: 20),
 
             activeIcon: Image.asset(
