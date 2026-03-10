@@ -32,5 +32,7 @@ flutter:
     - assets/images/
     - assets/images/onboarding/
     - assets/images/auth/
+    - assets/images/forum/
+    - assets/images/tools/
     - assets/icons/app_navbar/
     - assets/icons/app_appbar/

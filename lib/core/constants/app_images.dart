@@ -38,4 +38,24 @@ class AppImages {
       'assets/icons/app_appbar/fluent_chat-24-regular.png';
   static const String notification = 'assets/icons/app_appbar/notification.png';
   static const String badge = 'assets/icons/app_appbar/badge.png';
+
+  //Forum--
+  static const String post_image1 = 'assets/images/forum/post_image1.png';
+  static const String post_image2 = 'assets/images/forum/post_image2.png';
+  static const String profile_image1 = 'assets/images/forum/profile_image1.png';
+  static const String profile_image2 = 'assets/images/forum/profile_image2.png';
+  static const String profile_image3 = 'assets/images/forum/profile_image3.png';
+
+  //Tools--
+  static const String drill_machine1 = 'assets/images/tools/drill_machine1.png';
+  static const String picstools_package2 = 'assets/images/tools/12picstools_package2.png';
+  static const String hammer3 = 'assets/images/tools/hammer3.png';
+  static const String rangs4 = 'assets/images/tools/rangs4.png';
+  static const String picstools5 = 'assets/images/tools/12picstools5.png';
+  static const String plugshammer = 'assets/images/tools/plugs&hammer6.png';
+  static const String pizza7 = 'assets/images/tools/pizza7.png';
+  static const String bargar8 = 'assets/images/tools/bargar8.png';
+
+
+
 }

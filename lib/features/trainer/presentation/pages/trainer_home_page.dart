@@ -22,7 +22,7 @@ class _TrainerHomePageState extends State<TrainerHomePage> {
   //SELECTED INDEX
   int selectedIndex = 0;
   //PAGES LIST
-  final List<Widget> pages = [TrainerDashboardPage(), ForumPage(), ToolsPage()];
+  final List<Widget> pages = [TrainerDashboardPage(), ForumScreen(), ToolsPage()];
 
   @override
   Widget build(BuildContext context) {
