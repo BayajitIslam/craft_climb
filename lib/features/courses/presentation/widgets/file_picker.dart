@@ -2,10 +2,10 @@ import 'package:craft_climb/core/theme/app_pallete.dart';
 import 'package:craft_climb/core/theme/app_text_style.dart';
 import 'package:flutter/material.dart';
 
-class TrainerFilePicker extends StatelessWidget {
+class CourseFilePicker extends StatelessWidget {
   final String hint;
   final VoidCallback onTap;
-  const TrainerFilePicker({super.key, required this.hint, required this.onTap});
+  const CourseFilePicker({super.key, required this.hint, required this.onTap});
 
   @override
   Widget build(BuildContext context) {

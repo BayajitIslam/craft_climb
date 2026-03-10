@@ -2,9 +2,9 @@ import 'package:craft_climb/core/theme/app_pallete.dart';
 import 'package:craft_climb/core/theme/app_text_style.dart';
 import 'package:flutter/material.dart';
 
-class TrainerLectureTile extends StatelessWidget {
+class CourseLectureTile extends StatelessWidget {
   final String title;
-  const TrainerLectureTile({super.key, required this.title});
+  const CourseLectureTile({super.key, required this.title});
 
   @override
   Widget build(BuildContext context) {

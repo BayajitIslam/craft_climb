@@ -2,11 +2,11 @@ import 'package:craft_climb/core/theme/app_pallete.dart';
 import 'package:craft_climb/core/theme/app_text_style.dart';
 import 'package:flutter/material.dart';
 
-class TrainerFormField extends StatelessWidget {
+class CourseFormField extends StatelessWidget {
   final TextEditingController controller;
   final String hint;
   final int maxLines;
-  const TrainerFormField({
+  const CourseFormField({
     super.key,
     required this.controller,
     required this.hint,

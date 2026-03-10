@@ -4,8 +4,8 @@ import 'package:craft_climb/core/utils/screen_size.dart';
 import 'package:craft_climb/core/widgets/custome_app_bar.dart';
 import 'package:craft_climb/core/widgets/custome_searchbar.dart';
 import 'package:craft_climb/core/widgets/state_card.dart';
-import 'package:craft_climb/features/trainer/presentation/pages/my_course/course_detail_page.dart';
-import 'package:craft_climb/features/trainer/presentation/pages/new_course/new_course_page.dart';
+import 'package:craft_climb/features/courses/presentation/pages/my_course/course_detail_page.dart';
+import 'package:craft_climb/features/courses/presentation/pages/new_course/new_course_page.dart';
 import 'package:craft_climb/features/trainer/presentation/widgets/course_card.dart';
 import 'package:flutter/material.dart';
 
@@ -142,7 +142,7 @@ class TrainerDashboardPage extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: context.spacing24),
           child: Column(
             children: [
-              CourseCard(
+              TrainerCourseCard(
                 title: 'Construction Visit',
                 lectures: 32,
                 imageUrl:
@@ -152,7 +152,7 @@ class TrainerDashboardPage extends StatelessWidget {
                   Navigator.push(context, CourseDetailPage.route());
                 },
               ),
-              CourseCard(
+              TrainerCourseCard(
                 title: 'Construction Visit',
                 lectures: 32,
                 imageUrl:

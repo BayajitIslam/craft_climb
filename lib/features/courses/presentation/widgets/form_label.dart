@@ -2,9 +2,9 @@ import 'package:craft_climb/core/theme/app_pallete.dart';
 import 'package:craft_climb/core/theme/app_text_style.dart';
 import 'package:flutter/material.dart';
 
-class TrainerFormLabel extends StatelessWidget {
+class CourseFormLabel extends StatelessWidget {
   final String label;
-  const TrainerFormLabel({super.key, required this.label});
+  const CourseFormLabel({super.key, required this.label});
 
   @override
   Widget build(BuildContext context) {

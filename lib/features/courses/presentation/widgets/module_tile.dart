@@ -2,12 +2,12 @@ import 'package:craft_climb/core/theme/app_pallete.dart';
 import 'package:craft_climb/core/theme/app_text_style.dart';
 import 'package:flutter/material.dart';
 
-class TrainerModuleTile extends StatelessWidget {
+class CourseModuleTile extends StatelessWidget {
   final String title;
   final bool showEdit;
   final void Function()? editPress;
   final void Function()? viewModulePress;
-  const TrainerModuleTile({
+  const CourseModuleTile({
     super.key,
     required this.title,
     required this.showEdit,

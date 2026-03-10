@@ -2,10 +2,10 @@ import 'package:craft_climb/core/theme/app_pallete.dart';
 import 'package:craft_climb/core/theme/app_text_style.dart';
 import 'package:flutter/material.dart';
 
-class TrianerAddButton extends StatelessWidget {
+class CourseAddButton extends StatelessWidget {
   final String label;
   final VoidCallback onTap;
-  const TrianerAddButton({super.key, required this.label, required this.onTap});
+  const CourseAddButton({super.key, required this.label, required this.onTap});
 
   @override
   Widget build(BuildContext context) {

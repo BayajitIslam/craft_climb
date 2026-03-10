@@ -2,11 +2,11 @@ import 'package:craft_climb/core/utils/app_bg.dart';
 import 'package:craft_climb/core/utils/screen_size.dart';
 import 'package:craft_climb/core/widgets/primary_button.dart';
 import 'package:craft_climb/core/widgets/secand_app_bar.dart';
-import 'package:craft_climb/features/trainer/presentation/widgets/add_button.dart';
-import 'package:craft_climb/features/trainer/presentation/widgets/file_picker.dart';
-import 'package:craft_climb/features/trainer/presentation/widgets/form_field.dart';
-import 'package:craft_climb/features/trainer/presentation/widgets/form_label.dart';
-import 'package:craft_climb/features/trainer/presentation/widgets/outline_button.dart';
+import 'package:craft_climb/features/courses/presentation/widgets/add_button.dart';
+import 'package:craft_climb/features/courses/presentation/widgets/file_picker.dart';
+import 'package:craft_climb/features/courses/presentation/widgets/form_field.dart';
+import 'package:craft_climb/features/courses/presentation/widgets/form_label.dart';
+import 'package:craft_climb/features/courses/presentation/widgets/outline_button.dart';
 import 'package:flutter/material.dart';
 
 class NewLecturePage extends StatelessWidget {
@@ -36,26 +36,26 @@ class NewLecturePage extends StatelessWidget {
                 padding: const EdgeInsets.all(16),
                 children: [
                   // ── Lecture Name ──
-                  TrainerFormLabel(label: 'Lecture Name'),
-                  TrainerFormField(
+                  CourseFormLabel(label: 'Lecture Name'),
+                  CourseFormField(
                     controller: lectureNameController,
                     hint: 'Type here....',
                   ),
                   SizedBox(height: context.spacing16),
 
                   // ── Upload Video ──
-                  TrainerFormLabel(label: 'Upload Video'),
-                  TrainerFilePicker(hint: 'Choose your file', onTap: () {}),
+                  CourseFormLabel(label: 'Upload Video'),
+                  CourseFilePicker(hint: 'Choose your file', onTap: () {}),
                   SizedBox(height: 8),
 
                   // ── Add More ──
-                  TrianerAddButton(label: '+ Add Next Lecture', onTap: () {}),
+                  CourseAddButton(label: '+ Add Next Lecture', onTap: () {}),
                   SizedBox(height: context.spacing24),
 
                   // ── Buttons ──
                   PrimaryButton(buttonName: 'Publish', onPressed: () {}),
                   SizedBox(height: context.spacing12),
-                  TrainerOutlineButton(label: 'Save & Exit', onPressed: () {}),
+                  CourseOutlineButton(label: 'Save & Exit', onPressed: () {}),
                   SizedBox(height: context.spacing16),
                 ],
               ),

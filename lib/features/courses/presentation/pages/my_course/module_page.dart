@@ -2,11 +2,11 @@ import 'package:craft_climb/core/utils/app_bg.dart';
 import 'package:craft_climb/core/utils/screen_size.dart';
 import 'package:craft_climb/core/widgets/primary_button.dart';
 import 'package:craft_climb/core/widgets/secand_app_bar.dart';
-import 'package:craft_climb/features/trainer/presentation/widgets/add_button.dart';
-import 'package:craft_climb/features/trainer/presentation/widgets/form_field.dart';
-import 'package:craft_climb/features/trainer/presentation/widgets/form_label.dart';
-import 'package:craft_climb/features/trainer/presentation/widgets/lecture_tile.dart';
-import 'package:craft_climb/features/trainer/presentation/widgets/outline_button.dart';
+import 'package:craft_climb/features/courses/presentation/widgets/add_button.dart';
+import 'package:craft_climb/features/courses/presentation/widgets/form_field.dart';
+import 'package:craft_climb/features/courses/presentation/widgets/form_label.dart';
+import 'package:craft_climb/features/courses/presentation/widgets/lecture_tile.dart';
+import 'package:craft_climb/features/courses/presentation/widgets/outline_button.dart';
 import 'package:flutter/material.dart';
 
 class ModulePage extends StatelessWidget {
@@ -32,8 +32,8 @@ class ModulePage extends StatelessWidget {
                 padding: const EdgeInsets.all(16),
                 children: [
                   // ── Module Title ──
-                  TrainerFormLabel(label: 'Module Title'),
-                  TrainerFormField(
+                  CourseFormLabel(label: 'Module Title'),
+                  CourseFormField(
                     controller: moduleTitleController,
                     hint: 'Type here....',
                   ),
@@ -41,8 +41,8 @@ class ModulePage extends StatelessWidget {
                   SizedBox(height: context.spacing16),
 
                   // ── Module Description ──
-                  TrainerFormLabel(label: 'Module Description'),
-                  TrainerFormField(
+                  CourseFormLabel(label: 'Module Description'),
+                  CourseFormField(
                     controller: moduleDescriptionController,
                     hint: 'Type here....',
                     maxLines: 4,
@@ -54,19 +54,19 @@ class ModulePage extends StatelessWidget {
                   ...List.generate(
                     9,
                     (index) =>
-                        TrainerLectureTile(title: 'Lecture ${index + 1}'),
+                        CourseLectureTile(title: 'Lecture ${index + 1}'),
                   ),
 
                   // ── Add Lecture ──
                   SizedBox(height: context.spacing16),
-                  TrianerAddButton(label: '+ Add Next Lecture', onTap: () {}),
+                  CourseAddButton(label: '+ Add Next Lecture', onTap: () {}),
 
                   SizedBox(height: context.spacing24),
 
                   // ── Buttons ──
                   PrimaryButton(buttonName: 'Publish', onPressed: () {}),
                   SizedBox(height: context.spacing12),
-                  TrainerOutlineButton(label: 'Save & Exit', onPressed: () {}),
+                  CourseOutlineButton(label: 'Save & Exit', onPressed: () {}),
                   SizedBox(height: context.spacing16),
                 ],
               ),

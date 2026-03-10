@@ -4,10 +4,10 @@ import 'package:craft_climb/core/utils/app_bg.dart';
 import 'package:craft_climb/core/utils/screen_size.dart';
 import 'package:craft_climb/core/widgets/primary_button.dart';
 import 'package:craft_climb/core/widgets/secand_app_bar.dart';
-import 'package:craft_climb/features/trainer/presentation/widgets/add_button.dart';
-import 'package:craft_climb/features/trainer/presentation/widgets/form_field.dart';
-import 'package:craft_climb/features/trainer/presentation/widgets/form_label.dart';
-import 'package:craft_climb/features/trainer/presentation/widgets/outline_button.dart';
+import 'package:craft_climb/features/courses/presentation/widgets/add_button.dart';
+import 'package:craft_climb/features/courses/presentation/widgets/form_field.dart';
+import 'package:craft_climb/features/courses/presentation/widgets/form_label.dart';
+import 'package:craft_climb/features/courses/presentation/widgets/outline_button.dart';
 import 'package:flutter/material.dart';
 
 class NewExamPage extends StatefulWidget {
@@ -72,7 +72,7 @@ class _NewExamPageState extends State<NewExamPage> {
               child: ListView(
                 padding: const EdgeInsets.all(16),
                 children: [
-                  TrainerFormLabel(label: 'Questions'),
+                  CourseFormLabel(label: 'Questions'),
                   SizedBox(height: 8),
 
                   // ── Questions List ──
@@ -86,7 +86,7 @@ class _NewExamPageState extends State<NewExamPage> {
                             Text('${qIndex + 1}.'),
                             SizedBox(width: 8),
                             Expanded(
-                              child: TrainerFormField(
+                              child: CourseFormField(
                                 controller: questions[qIndex]['question'],
                                 hint: 'Type here....',
                               ),
@@ -103,7 +103,7 @@ class _NewExamPageState extends State<NewExamPage> {
                             child: Row(
                               children: [
                                 Expanded(
-                                  child: TrainerFormField(
+                                  child: CourseFormField(
                                     controller:
                                         questions[qIndex]['options'][oIndex],
                                     hint: 'Option ${oIndex + 1}',
@@ -132,7 +132,7 @@ class _NewExamPageState extends State<NewExamPage> {
                   }),
 
                   // ── Add Question ──
-                  TrianerAddButton(
+                  CourseAddButton(
                     label: '+ Add Next Question',
                     onTap: addQuestion,
                   ),
@@ -141,7 +141,7 @@ class _NewExamPageState extends State<NewExamPage> {
                   // ── Buttons ──
                   PrimaryButton(buttonName: 'Publish', onPressed: () {}),
                   SizedBox(height: context.spacing12),
-                  TrainerOutlineButton(label: 'Save & Exit', onPressed: () {}),
+                  CourseOutlineButton(label: 'Save & Exit', onPressed: () {}),
                   SizedBox(height: context.spacing16),
                 ],
               ),
