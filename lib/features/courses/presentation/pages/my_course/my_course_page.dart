@@ -1,6 +1,6 @@
 import 'package:craft_climb/core/utils/screen_size.dart';
 import 'package:craft_climb/core/widgets/secand_app_bar.dart';
-import 'package:craft_climb/features/trainer/presentation/pages/my_course/course_detail_page.dart';
+import 'package:craft_climb/features/courses/presentation/pages/my_course/course_detail_page.dart';
 import 'package:craft_climb/features/trainer/presentation/widgets/course_card.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +20,7 @@ class MyCoursePage extends StatelessWidget {
             padding: EdgeInsets.all(context.spacing24),
             physics: const BouncingScrollPhysics(),
             itemCount: 10,
-            itemBuilder: (context, index) => CourseCard(
+            itemBuilder: (context, index) => TrainerCourseCard(
               title: 'Construction Visit',
               lectures: 2,
               imageUrl:

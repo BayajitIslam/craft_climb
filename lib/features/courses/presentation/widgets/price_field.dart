@@ -2,9 +2,9 @@ import 'package:craft_climb/core/theme/app_pallete.dart';
 import 'package:craft_climb/core/theme/app_text_style.dart';
 import 'package:flutter/material.dart';
 
-class TrainerPriceField extends StatelessWidget {
+class CoursePriceField extends StatelessWidget {
   final TextEditingController controller;
-  const TrainerPriceField({super.key, required this.controller});
+  const CoursePriceField({super.key, required this.controller});
 
   @override
   Widget build(BuildContext context) {

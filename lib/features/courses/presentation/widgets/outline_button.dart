@@ -2,10 +2,10 @@ import 'package:craft_climb/core/theme/app_pallete.dart';
 import 'package:craft_climb/core/theme/app_text_style.dart';
 import 'package:flutter/material.dart';
 
-class TrainerOutlineButton extends StatelessWidget {
+class CourseOutlineButton extends StatelessWidget {
   final String label;
   final VoidCallback onPressed;
-  const TrainerOutlineButton({
+  const CourseOutlineButton({
     super.key,
     required this.label,
     required this.onPressed,

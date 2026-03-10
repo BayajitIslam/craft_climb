@@ -4,9 +4,9 @@ import 'package:craft_climb/core/utils/app_bg.dart';
 import 'package:craft_climb/core/utils/screen_size.dart';
 import 'package:craft_climb/core/widgets/primary_button.dart';
 import 'package:craft_climb/core/widgets/secand_app_bar.dart';
-import 'package:craft_climb/features/trainer/presentation/pages/my_course/edit_course_page.dart';
-import 'package:craft_climb/features/trainer/presentation/pages/my_course/module_page.dart';
-import 'package:craft_climb/features/trainer/presentation/widgets/module_tile.dart';
+import 'package:craft_climb/features/courses/presentation/pages/my_course/edit_course_page.dart';
+import 'package:craft_climb/features/courses/presentation/pages/my_course/module_page.dart';
+import 'package:craft_climb/features/courses/presentation/widgets/module_tile.dart';
 import 'package:flutter/material.dart';
 
 class CourseDetailPage extends StatelessWidget {
@@ -108,7 +108,7 @@ class CourseDetailPage extends StatelessWidget {
               child: ListView.builder(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 itemCount: 4,
-                itemBuilder: (context, index) => TrainerModuleTile(
+                itemBuilder: (context, index) => CourseModuleTile(
                   title: 'Module ${index + 1}',
                   showEdit: true,
                   viewModulePress: () {

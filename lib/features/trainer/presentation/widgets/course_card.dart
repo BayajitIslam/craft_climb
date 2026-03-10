@@ -3,14 +3,14 @@ import 'package:craft_climb/core/theme/app_text_style.dart';
 import 'package:craft_climb/core/utils/screen_size.dart';
 import 'package:flutter/material.dart';
 
-class CourseCard extends StatelessWidget {
+class TrainerCourseCard extends StatelessWidget {
   final String title;
   final int lectures;
   final String imageUrl;
   final bool isLast;
   final void Function()? onTap;
 
-  const CourseCard({
+  const TrainerCourseCard({
     super.key,
     required this.title,
     required this.lectures,

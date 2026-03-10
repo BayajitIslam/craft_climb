@@ -2,15 +2,15 @@ import 'package:craft_climb/core/utils/app_bg.dart';
 import 'package:craft_climb/core/utils/screen_size.dart';
 import 'package:craft_climb/core/widgets/primary_button.dart';
 import 'package:craft_climb/core/widgets/secand_app_bar.dart';
-import 'package:craft_climb/features/trainer/presentation/pages/new_course/new_exam_page.dart';
-import 'package:craft_climb/features/trainer/presentation/pages/new_course/new_lecture_page.dart';
-import 'package:craft_climb/features/trainer/presentation/pages/new_course/new_pdf_page.dart';
-import 'package:craft_climb/features/trainer/presentation/widgets/add_button.dart';
-import 'package:craft_climb/features/trainer/presentation/widgets/file_picker.dart';
-import 'package:craft_climb/features/trainer/presentation/widgets/form_field.dart';
-import 'package:craft_climb/features/trainer/presentation/widgets/form_label.dart';
-import 'package:craft_climb/features/trainer/presentation/widgets/outline_button.dart';
-import 'package:craft_climb/features/trainer/presentation/widgets/price_field.dart';
+import 'package:craft_climb/features/courses/presentation/pages/new_course/new_exam_page.dart';
+import 'package:craft_climb/features/courses/presentation/pages/new_course/new_lecture_page.dart';
+import 'package:craft_climb/features/courses/presentation/pages/new_course/new_pdf_page.dart';
+import 'package:craft_climb/features/courses/presentation/widgets/add_button.dart';
+import 'package:craft_climb/features/courses/presentation/widgets/file_picker.dart';
+import 'package:craft_climb/features/courses/presentation/widgets/form_field.dart';
+import 'package:craft_climb/features/courses/presentation/widgets/form_label.dart';
+import 'package:craft_climb/features/courses/presentation/widgets/outline_button.dart';
+import 'package:craft_climb/features/courses/presentation/widgets/price_field.dart';
 import 'package:flutter/material.dart';
 
 class NewCoursePage extends StatelessWidget {
@@ -42,46 +42,46 @@ class NewCoursePage extends StatelessWidget {
                 padding: const EdgeInsets.all(16),
                 children: [
                   // ── Course Name ──
-                  TrainerFormLabel(label: 'Course Name'),
-                  TrainerFormField(
+                  CourseFormLabel(label: 'Course Name'),
+                  CourseFormField(
                     controller: courseNameController,
                     hint: 'Type here....',
                   ),
                   SizedBox(height: context.spacing16),
 
                   // ── Course Summary ──
-                  TrainerFormLabel(label: 'Course Summary'),
-                  TrainerFormField(
+                  CourseFormLabel(label: 'Course Summary'),
+                  CourseFormField(
                     controller: courseSummaryController,
                     hint: 'Type here....',
                   ),
                   SizedBox(height: context.spacing16),
 
                   // ── Course Image ──
-                  TrainerFormLabel(label: 'Course Image'),
-                  TrainerFilePicker(hint: 'Choose your image', onTap: () {}),
+                  CourseFormLabel(label: 'Course Image'),
+                  CourseFilePicker(hint: 'Choose your image', onTap: () {}),
                   SizedBox(height: context.spacing16),
 
                   // ── Course Price ──
-                  TrainerFormLabel(label: 'Course Price'),
-                  TrainerPriceField(controller: coursePriceController),
+                  CourseFormLabel(label: 'Course Price'),
+                  CoursePriceField(controller: coursePriceController),
                   SizedBox(height: context.spacing24),
 
                   // ── Course Content ──
-                  TrainerFormLabel(label: 'Course Content'),
+                  CourseFormLabel(label: 'Course Content'),
                   SizedBox(height: 8),
-                  TrianerAddButton(
+                  CourseAddButton(
                     label: '+ Add Next Lecture',
                     onTap: () =>
                         Navigator.push(context, NewLecturePage.route()),
                   ),
                   SizedBox(height: 8),
-                  TrianerAddButton(
+                  CourseAddButton(
                     label: '+ Add PDF',
                     onTap: () => Navigator.push(context, NewPdfPage.route()),
                   ),
                   SizedBox(height: 8),
-                  TrianerAddButton(
+                  CourseAddButton(
                     label: '+ Add Exam',
                     onTap: () => Navigator.push(context, NewExamPage.route()),
                   ),
@@ -91,7 +91,7 @@ class NewCoursePage extends StatelessWidget {
                   // ── Buttons ──
                   PrimaryButton(buttonName: 'Publish', onPressed: () {}),
                   SizedBox(height: context.spacing12),
-                  TrainerOutlineButton(label: 'Save & Exit', onPressed: () {}),
+                  CourseOutlineButton(label: 'Save & Exit', onPressed: () {}),
                   SizedBox(height: context.spacing16),
                 ],
               ),
