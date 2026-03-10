@@ -1,6 +1,7 @@
 import 'package:craft_climb/core/theme/app_pallete.dart';
 import 'package:craft_climb/core/utils/screen_size.dart';
 import 'package:craft_climb/core/widgets/custome_app_bar.dart';
+import 'package:craft_climb/core/widgets/custome_searchbar.dart';
 import 'package:flutter/material.dart';
 
 class TrainerDashboardPage extends StatelessWidget {
@@ -35,10 +36,13 @@ class TrainerDashboardPage extends StatelessWidget {
                 top: 33,
                 left: 24,
                 right: 24,
-                child: SearchBar()),
+                child: CustomeSearchbar(),
+              ),
             ],
           ),
         ),
+
+        //rest of content
       ],
     );
   }
