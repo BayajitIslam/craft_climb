@@ -113,7 +113,7 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
             child: const Icon(
               Icons.arrow_back_ios_new,
               size: 14,
-              color: AppPallete.bodyText,
+              color: AppPallete.accent,
             ),
           ),
         ),
@@ -121,7 +121,7 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
       title: Text(
         widget.name,
         style: AppTextStyle.s24w7i(
-          color: AppPallete.primary,
+          color: AppPallete.bodyText,
           fontSize: 18,
         ),
       ),
@@ -140,7 +140,7 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
             child: const Icon(
               Icons.notifications_none,
               size: 18,
-              color: AppPallete.bodyText,
+              color: AppPallete.accent,
             ),
           ),
         ),
@@ -188,47 +188,54 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
               decoration: BoxDecoration(
                 color: Colors.white, // background white
                 borderRadius: BorderRadius.circular(12), // outer radius
-                // border: remove korle blank hoy
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.3), // slightly darker shadow
+                    blurRadius: 8,                        // increased blur
+                    spreadRadius: 1,                      // add little spread
+                    offset: const Offset(0, 4),           // slightly lower shadow
+                  ),
+                ],
               ),
-              child: Center(
-                child: TextField(
-                  controller: _messageController,
-                  style: AppTextStyle.s14w4i(
-                    color: AppPallete.primary,
+              child: TextField(
+                controller: _messageController,
+                style: AppTextStyle.s14w4i(
+                  color: AppPallete.bodyText,
+                  fontSize: 14,
+                ),
+                decoration: InputDecoration(
+                  hintText: 'Type Here...',
+                  hintStyle: AppTextStyle.s14w4i(
+                    color: AppPallete.lighBlueGray,
                     fontSize: 14,
                   ),
-                  decoration: InputDecoration(
-                    hintText: 'Type Here...',
-                    hintStyle: AppTextStyle.s14w4i(
-                      color: AppPallete.lighBlueGray,
-                      fontSize: 14,
+                  isDense: true,
+                  contentPadding: const EdgeInsets.symmetric(vertical: 10, horizontal: 0),
+                  border: InputBorder.none,           // underline remove
+                  enabledBorder: InputBorder.none,
+                  focusedBorder: InputBorder.none,
+                  suffixIcon: GestureDetector(
+                    onTap: _sendMessage,
+                    child: Container(
+                      width: 36,
+                      height: 36,
+                      margin: const EdgeInsets.only(right: 4),
+                      decoration: const BoxDecoration(
+                        color: AppPallete.accent,
+                        shape: BoxShape.circle,
+                      ),
+                      child: const Icon(
+                        Icons.send,
+                        color: AppPallete.primary,
+                        size: 18,
+                      ),
                     ),
-                    border: InputBorder.none, // inner line remove
-                    isDense: true,
-                    contentPadding: const EdgeInsets.symmetric(vertical: 10),
                   ),
-                  onSubmitted: (_) => _sendMessage(),
                 ),
-              ),
-            )
-          ),
-          SizedBox(width: context.spacing12),
-          GestureDetector(
-            onTap: _sendMessage,
-            child: Container(
-              width: 40,
-              height: 40,
-              decoration: const BoxDecoration(
-                color: AppPallete.accent,
-                shape: BoxShape.circle,
-              ),
-              child: const Icon(
-                Icons.send,
-                color: AppPallete.primary,
-                size: 18,
+                onSubmitted: (_) => _sendMessage(),
               ),
             ),
-          ),
+          )
         ],
       ),
     );

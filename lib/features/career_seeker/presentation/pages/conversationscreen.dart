@@ -4,6 +4,7 @@ import 'package:craft_climb/core/theme/app_text_style.dart';
 import 'package:craft_climb/core/utils/screen_size.dart';
 import 'package:flutter/material.dart';
 
+import '../widgets/botumNavbar.dart';
 import 'chatdetailscreen.dart';
 
 class ConversationsScreen extends StatefulWidget {
@@ -15,6 +16,7 @@ class ConversationsScreen extends StatefulWidget {
 
 class _ConversationsScreenState extends State<ConversationsScreen> {
   final TextEditingController _searchController = TextEditingController();
+  int _currentIndex = 0;
 
   final List<Map<String, dynamic>> _conversations = [
     {
@@ -90,7 +92,7 @@ class _ConversationsScreenState extends State<ConversationsScreen> {
               child: const Icon(
                 Icons.arrow_back_ios_new,
                 size: 14,
-                color: AppPallete.bodyText,
+                color: AppPallete.accent,
               ),
             ),
           ),
@@ -117,7 +119,7 @@ class _ConversationsScreenState extends State<ConversationsScreen> {
               child: const Icon(
                 Icons.notifications_none,
                 size: 18,
-                color: AppPallete.bodyText,
+                color: AppPallete.accent,
               ),
             ),
           ),
@@ -142,61 +144,14 @@ class _ConversationsScreenState extends State<ConversationsScreen> {
           ),
         ],
       ),
-      bottomNavigationBar: _buildBottomNav(context),
-    );
-  }
-
-  PreferredSizeWidget _buildAppBar(BuildContext context) {
-    return AppBar(
-      backgroundColor: AppPallete.primary,
-      elevation: 0,
-      leading: Padding(
-        padding: EdgeInsets.only(left: context.spacing16),
-        child: GestureDetector(
-          onTap: () => Navigator.pop(context),
-          child: Container(
-            width: 34,
-            height: 34,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              border: Border.all(color: AppPallete.border),
-              color: AppPallete.primary,
-            ),
-            child: const Icon(
-              Icons.arrow_back_ios_new,
-              size: 14,
-              color: AppPallete.bodyText,
-            ),
-          ),
-        ),
+      bottomNavigationBar: BottomNavBar(
+        selectedIndex: _currentIndex,
+        onTap: (index) {
+          setState(() {
+            _currentIndex = index;
+          });
+        },
       ),
-      title: Text(
-        'Conversations',
-        style: AppTextStyle.s24w7i(
-          color: AppPallete.bodyText,
-          fontSize: 20,
-        ),
-      ),
-      centerTitle: true,
-      actions: [
-        Padding(
-          padding: EdgeInsets.only(right: context.spacing16),
-          child: Container(
-            width: 34,
-            height: 34,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              border: Border.all(color: AppPallete.border),
-              color: AppPallete.primary,
-            ),
-            child: const Icon(
-              Icons.notifications_none,
-              size: 18,
-              color: AppPallete.bodyText,
-            ),
-          ),
-        ),
-      ],
     );
   }
 
@@ -212,50 +167,67 @@ class _ConversationsScreenState extends State<ConversationsScreen> {
           color: AppPallete.secondary,
           borderRadius: BorderRadius.circular(12),
         ),
-        child: Row(
-          children: [
-            SizedBox(width: context.spacing12),
-            const Icon(Icons.search, color: AppPallete.lighBlueGray, size: 20),
-            SizedBox(width: context.spacing8),
-            Expanded(
-              child: TextField(
-                controller: _searchController,
-                style: AppTextStyle.s14w4i(
-                  color: AppPallete.bodyText,
-                  fontSize: 14,
-                ),
-                decoration: InputDecoration(
-                  hintText: 'Search here...',
-                  hintStyle: AppTextStyle.s14w4i(
-                    color: AppPallete.lighBlueGray,
+        child: Container(
+          height: 42, // adjustable height
+          decoration: BoxDecoration(
+            color: Colors.white, // full background white
+            borderRadius: BorderRadius.circular(50), // full rounded corners
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.2), // subtle shadow
+                blurRadius: 4,
+                offset: const Offset(0, 2), // slightly below
+              ),
+            ],
+          ),
+          child: Row(
+            children: [
+              SizedBox(width: context.spacing12),
+              const Icon(Icons.search, color: AppPallete.lighBlueGray, size: 20),
+              SizedBox(width: context.spacing8),
+              Expanded(
+                child: TextField(
+                  controller: _searchController,
+                  style: AppTextStyle.s14w4i(
+                    color: AppPallete.bodyText,
                     fontSize: 14,
                   ),
-                  border: InputBorder.none,
-                  contentPadding: EdgeInsets.zero,
-                ),
-              ),
-            ),
-            GestureDetector(
-              onTap: () => _searchController.clear(),
-              child: Padding(
-                padding: EdgeInsets.only(right: context.spacing12),
-                child: Container(
-                  width: 20,
-                  height: 20,
-                  decoration: const BoxDecoration(
-                    color: AppPallete.lighBlueGray,
-                    shape: BoxShape.circle,
-                  ),
-                  child: const Icon(
-                    Icons.close,
-                    size: 12,
-                    color: AppPallete.primary,
+                  decoration: InputDecoration(
+                    hintText: 'Search here...',
+                    hintStyle: AppTextStyle.s14w4i(
+                      color: AppPallete.lighBlueGray,
+                      fontSize: 14,
+                    ),
+                    contentPadding: EdgeInsets.zero,
+                    border: InputBorder.none,           // underline remove
+                    enabledBorder: InputBorder.none,
+                    focusedBorder: InputBorder.none,
+
                   ),
                 ),
               ),
-            ),
-          ],
-        ),
+              GestureDetector(
+                onTap: () => _searchController.clear(),
+                child: Padding(
+                  padding: EdgeInsets.only(right: context.spacing12),
+                  child: Container(
+                    width: 20,
+                    height: 20,
+                    decoration: const BoxDecoration(
+                      color: AppPallete.lighBlueGray,
+                      shape: BoxShape.circle,
+                    ),
+                    child: const Icon(
+                      Icons.close,
+                      size: 12,
+                      color: AppPallete.primary,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        )
       ),
     );
   }
@@ -287,76 +259,7 @@ class _ConversationsScreenState extends State<ConversationsScreen> {
     );
   }
 
-  Widget _buildBottomNav(BuildContext context) {
-    const items = [
-      {'icon': Icons.home_outlined, 'activeIcon': Icons.home, 'label': 'Home'},
-      {'icon': Icons.work_outline, 'activeIcon': Icons.work, 'label': 'Jobs'},
-      {
-        'icon': Icons.track_changes_outlined,
-        'activeIcon': Icons.track_changes,
-        'label': 'Career Hub',
-      },
-      {
-        'icon': Icons.person_outline,
-        'activeIcon': Icons.person,
-        'label': 'Account',
-      },
-    ];
 
-    return Container(
-      decoration: BoxDecoration(
-        color: AppPallete.primary,
-        boxShadow: [
-          BoxShadow(
-            color: AppPallete.dropShadow,
-            blurRadius: 8,
-            offset: const Offset(0, -2),
-          ),
-        ],
-      ),
-      child: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 10),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: List.generate(items.length, (i) {
-              final isSelected = i == 0;
-              return GestureDetector(
-                onTap: () {},
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Icon(
-                      isSelected
-                          ? items[i]['activeIcon'] as IconData
-                          : items[i]['icon'] as IconData,
-                      color: isSelected
-                          ? AppPallete.accent
-                          : AppPallete.extraAsh,
-                      size: 22,
-                    ),
-                    const SizedBox(height: 3),
-                    Text(
-                      items[i]['label'] as String,
-                      style: AppTextStyle.s14w4i(
-                        color: isSelected
-                            ? AppPallete.accent
-                            : AppPallete.extraAsh,
-                        fontSize: 11,
-                        fontWeight: isSelected
-                            ? FontWeight.w600
-                            : FontWeight.w400,
-                      ),
-                    ),
-                  ],
-                ),
-              );
-            }),
-          ),
-        ),
-      ),
-    );
-  }
 }
 
 class _ConversationTile extends StatelessWidget {
