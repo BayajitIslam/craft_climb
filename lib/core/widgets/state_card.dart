@@ -8,6 +8,7 @@ class StatCard extends StatelessWidget {
   final Color color;
   final IconData icon;
   final Gradient gradient;
+  final void Function()? onTap;
 
   const StatCard({
     super.key,
@@ -16,79 +17,83 @@ class StatCard extends StatelessWidget {
     required this.color,
     required this.icon,
     required this.gradient,
+    this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 124,
-      decoration: BoxDecoration(
-        gradient: gradient,
-        borderRadius: BorderRadius.circular(16),
-        boxShadow: [
-          BoxShadow(
-            color: AppPallete.dropShadow,
-            blurRadius: 12,
-            offset: const Offset(0, 6),
-          ),
-        ],
-      ),
-      child: Stack(
-        children: [
-          // Background icon watermark
-          Positioned(
-            bottom: -6,
-            right: -6,
-            child: Icon(icon, size: 64, color: AppPallete.white10),
-          ),
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        height: 124,
+        decoration: BoxDecoration(
+          gradient: gradient,
+          borderRadius: BorderRadius.circular(16),
+          boxShadow: [
+            BoxShadow(
+              color: AppPallete.dropShadow,
+              blurRadius: 12,
+              offset: const Offset(0, 6),
+            ),
+          ],
+        ),
+        child: Stack(
+          children: [
+            // Background icon watermark
+            Positioned(
+              bottom: -6,
+              right: -6,
+              child: Icon(icon, size: 64, color: AppPallete.white10),
+            ),
 
-          // Dot grid decoration
-          Positioned(
-            top: 8,
-            left: 8,
-            child: Wrap(
-              spacing: 3,
-              runSpacing: 3,
-              children: List.generate(
-                9,
-                (_) => Container(
-                  width: 3,
-                  height: 3,
-                  decoration: BoxDecoration(
-                    color: AppPallete.white30,
-                    shape: BoxShape.circle,
+            // Dot grid decoration
+            Positioned(
+              top: 8,
+              left: 8,
+              child: Wrap(
+                spacing: 3,
+                runSpacing: 3,
+                children: List.generate(
+                  9,
+                  (_) => Container(
+                    width: 3,
+                    height: 3,
+                    decoration: BoxDecoration(
+                      color: AppPallete.white30,
+                      shape: BoxShape.circle,
+                    ),
                   ),
                 ),
               ),
             ),
-          ),
 
-          // Value + label
-          Padding(
-            padding: const EdgeInsets.all(12),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  value,
-                  style: AppTextStyle.s32w7i(
-                    fontSize: 34,
-                    color: AppPallete.primary,
+            // Value + label
+            Padding(
+              padding: const EdgeInsets.all(12),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    value,
+                    style: AppTextStyle.s32w7i(
+                      fontSize: 34,
+                      color: AppPallete.primary,
+                    ),
                   ),
-                ),
-                const SizedBox(height: 3),
-                Text(
-                  label,
-                  style: AppTextStyle.s14w4i(
-                    color: AppPallete.primary,
-                    fontWeight: FontWeight.w500,
+                  const SizedBox(height: 3),
+                  Text(
+                    label,
+                    style: AppTextStyle.s14w4i(
+                      color: AppPallete.primary,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
