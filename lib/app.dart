@@ -17,7 +17,7 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
       //home: OnboardingPage(),
-      home: ConversationsScreen(),
+      home: ForumScreen(),
     );
   }
 }

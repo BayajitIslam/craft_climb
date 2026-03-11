@@ -47,7 +47,6 @@ class _ForumScreenState extends State<ForumScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      extendBodyBehindAppBar: true,
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.transparent, // transparent background
@@ -133,7 +132,7 @@ class _ForumScreenState extends State<ForumScreen> {
           ListView.separated(
             padding: EdgeInsets.symmetric(
               horizontal: 16,
-              vertical: 12 + kToolbarHeight, // toolbar height offset
+              vertical: 16 + kToolbarHeight, // toolbar height offset
             ),
             itemCount: _posts.length,
             separatorBuilder: (_, __) => SizedBox(height: 16),
