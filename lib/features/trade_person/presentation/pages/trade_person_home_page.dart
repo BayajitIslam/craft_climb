@@ -1,6 +1,14 @@
+import 'package:craft_climb/core/local_storage/local_storage.dart';
+import 'package:craft_climb/core/utils/app_bg.dart';
+import 'package:craft_climb/core/widgets/app_navbar.dart';
+import 'package:craft_climb/features/courses/presentation/pages/browse_course/career_hub_page.dart';
+import 'package:craft_climb/features/forum/presentation/pages/forum_page.dart';
+import 'package:craft_climb/features/job/presentation/pages/jobs_page.dart';
+import 'package:craft_climb/features/tools/presentation/pages/tools_page.dart';
+import 'package:craft_climb/features/trade_person/presentation/pages/trade_person_dashboard_page.dart';
 import 'package:flutter/material.dart';
 
-class TradePersonHomePage extends StatelessWidget {
+class TradePersonHomePage extends StatefulWidget {
   //route
   static Route route() {
     return MaterialPageRoute(builder: (context) => TradePersonHomePage());
@@ -9,7 +17,33 @@ class TradePersonHomePage extends StatelessWidget {
   const TradePersonHomePage({super.key});
 
   @override
+  State<TradePersonHomePage> createState() => _TradePersonHomePageState();
+}
+
+class _TradePersonHomePageState extends State<TradePersonHomePage> {
+  //STATE
+  int selectedIndex = 0;
+
+  //PAGES
+  final List<Widget> pages = [
+    TradePersonDashboardPage(),
+    JobsPage(),
+    ToolsPage(),
+    ForumPage(),
+    CareerHubPage(),
+  ];
+
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Center(child: Text('Trade Person Homepage Page')));
+    return Scaffold(
+      body: AppBg(child: pages[selectedIndex]),
+      bottomNavigationBar: AppNavbar(
+        role: LocalStorage.userRole,
+        selectedIndex: selectedIndex,
+        onTap: (index) {
+          setState(() => selectedIndex = index);
+        },
+      ),
+    );
   }
 }
