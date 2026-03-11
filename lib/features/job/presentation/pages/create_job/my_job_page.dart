@@ -3,20 +3,19 @@ import 'package:craft_climb/core/theme/app_text_style.dart';
 import 'package:craft_climb/core/utils/app_bg.dart';
 import 'package:craft_climb/core/widgets/custome_searchbar.dart';
 import 'package:craft_climb/core/widgets/secand_app_bar.dart';
-import 'package:craft_climb/features/job/presentation/pages/job_detail_page.dart';
+import 'package:craft_climb/features/job/presentation/pages/create_job/employer_job_detail_page.dart';
 import 'package:craft_climb/features/job/presentation/widgets/job_card.dart';
-import 'package:craft_climb/features/job/presentation/widgets/job_filter_chip.dart';
 import 'package:flutter/material.dart';
 
-class JobsPage extends StatefulWidget {
-  static Route route() => MaterialPageRoute(builder: (_) => const JobsPage());
-  const JobsPage({super.key});
+class MyJobPage extends StatefulWidget {
+  static Route route() => MaterialPageRoute(builder: (_) => const MyJobPage());
+  const MyJobPage({super.key});
 
   @override
-  State<JobsPage> createState() => _JobsPageState();
+  State<MyJobPage> createState() => _MyJobPageState();
 }
 
-class _JobsPageState extends State<JobsPage> {
+class _MyJobPageState extends State<MyJobPage> {
   final searchController = TextEditingController();
   int selectedFilter = 0;
   String searchQuery = '';
@@ -96,7 +95,7 @@ class _JobsPageState extends State<JobsPage> {
           child: Column(
             children: [
               // ── AppBar ─────────────────────────────────────────────
-              SecandAppBar(title: 'Jobs'),
+              SecandAppBar(title: 'My Jobs'),
               const SizedBox(height: 12),
 
               CustomeSearchbar(
@@ -106,21 +105,21 @@ class _JobsPageState extends State<JobsPage> {
 
               const SizedBox(height: 12),
 
-              // ── Filter Chips ──
-              SizedBox(
-                height: 34,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: filters.length,
-                  itemBuilder: (_, index) => JobFilterChip(
-                    label: filters[index],
-                    isSelected: selectedFilter == index,
-                    onTap: () => setState(() => selectedFilter = index),
-                  ),
-                ),
-              ),
+              // // ── Filter Chips ──
+              // SizedBox(
+              //   height: 34,
+              //   child: ListView.builder(
+              //     scrollDirection: Axis.horizontal,
+              //     itemCount: filters.length,
+              //     itemBuilder: (_, index) => JobFilterChip(
+              //       label: filters[index],
+              //       isSelected: selectedFilter == index,
+              //       onTap: () => setState(() => selectedFilter = index),
+              //     ),
+              //   ),
+              // ),
 
-              const SizedBox(height: 12),
+              // const SizedBox(height: 12),
 
               // ── Jobs List or Empty State ──
               Expanded(
@@ -140,8 +139,10 @@ class _JobsPageState extends State<JobsPage> {
                           location: filteredJobs[index]['location']!,
                           daysLeft: filteredJobs[index]['days']!,
                           salary: filteredJobs[index]['salary']!,
-                          onTap: () =>
-                              Navigator.push(context, JobDetailPage.route()),
+                          onTap: () => Navigator.push(
+                            context,
+                            EmployerJobDetailPage.route(),
+                          ),
                         ),
                       ),
               ),

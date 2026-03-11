@@ -3,7 +3,7 @@ import 'package:craft_climb/core/utils/app_bg.dart';
 import 'package:craft_climb/core/widgets/app_navbar.dart';
 import 'package:craft_climb/features/courses/presentation/pages/browse_course/career_hub_page.dart';
 import 'package:craft_climb/features/forum/presentation/pages/forum_page.dart';
-import 'package:craft_climb/features/job/presentation/pages/jobs_page.dart';
+import 'package:craft_climb/features/job/presentation/pages/browse_job/jobs_page.dart';
 import 'package:craft_climb/features/tools/presentation/pages/tools_page.dart';
 import 'package:craft_climb/features/trade_person/presentation/pages/trade_person_dashboard_page.dart';
 import 'package:flutter/material.dart';

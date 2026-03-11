@@ -4,7 +4,7 @@ import 'package:craft_climb/core/utils/screen_size.dart';
 import 'package:craft_climb/core/widgets/custome_app_bar.dart';
 import 'package:craft_climb/core/widgets/custome_searchbar.dart';
 import 'package:craft_climb/core/widgets/state_card.dart';
-import 'package:craft_climb/features/job/presentation/pages/job_detail_page.dart';
+import 'package:craft_climb/features/job/presentation/pages/browse_job/job_detail_page.dart';
 import 'package:craft_climb/features/job/presentation/widgets/job_card.dart';
 import 'package:flutter/material.dart';
 
