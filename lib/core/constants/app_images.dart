@@ -38,4 +38,7 @@ class AppImages {
       'assets/icons/app_appbar/fluent_chat-24-regular.png';
   static const String notification = 'assets/icons/app_appbar/notification.png';
   static const String badge = 'assets/icons/app_appbar/badge.png';
+
+  //Carrer Seeker 
+  static const String stashTarget = 'assets/images/carrer_seeker/stash_target.png';
 }
