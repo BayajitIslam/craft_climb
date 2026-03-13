@@ -55,6 +55,15 @@ class AppNavbar extends StatelessWidget {
             ),
             label: 'Forum',
           ),
+          BottomNavigationBarItem(
+            icon: Image.asset(AppImages.carrerHub, width: 20),
+            activeIcon: Image.asset(
+              AppImages.carrerHub,
+              width: 22,
+              color: AppPallete.accent,
+            ),
+            label: 'Career',
+          ),
 
           BottomNavigationBarItem(
             icon: Image.asset(AppImages.profile, width: 20),
@@ -113,7 +122,7 @@ class AppNavbar extends StatelessWidget {
               width: 22,
               color: AppPallete.accent,
             ),
-            label: 'Profile',
+            label: 'Account',
           ),
         ];
       case 'trainer':
@@ -164,7 +173,16 @@ class AppNavbar extends StatelessWidget {
               width: 22,
               color: AppPallete.accent,
             ),
-            label: 'Career Hub',
+            label: 'Career',
+          ),
+          BottomNavigationBarItem(
+            icon: Image.asset(AppImages.profile, width: 20),
+            activeIcon: Image.asset(
+              AppImages.profile,
+              width: 22,
+              color: AppPallete.accent,
+            ),
+            label: 'Account ',
           ),
         ];
       case 'trade_person':
@@ -215,7 +233,16 @@ class AppNavbar extends StatelessWidget {
               width: 22,
               color: AppPallete.accent,
             ),
-            label: 'My Course',
+            label: 'Course',
+          ),
+          BottomNavigationBarItem(
+            icon: Image.asset(AppImages.profile, width: 20),
+            activeIcon: Image.asset(
+              AppImages.profile,
+              width: 22,
+              color: AppPallete.accent,
+            ),
+            label: 'Profile',
           ),
         ];
       default:
