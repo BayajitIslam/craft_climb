@@ -1,6 +1,7 @@
 import 'package:craft_climb/core/local_storage/local_storage.dart';
 import 'package:craft_climb/core/utils/app_bg.dart';
 import 'package:craft_climb/core/widgets/app_navbar.dart';
+import 'package:craft_climb/features/account/presentation/pages/carrer_seeker/carrer_seeker_account_page.dart';
 import 'package:craft_climb/features/career_seeker/presentation/pages/carrer_seeker_dashboard_page.dart';
 import 'package:craft_climb/features/courses/presentation/pages/browse_course/career_hub_page.dart';
 import 'package:craft_climb/features/forum/presentation/pages/forum_page.dart';
@@ -30,6 +31,7 @@ class _CarrerSeekerHomePageState extends State<CarrerSeekerHomePage> {
     ToolsPage(),
     ForumPage(),
     CareerHubPage(),
+    CarrerSeekerAccountPage(),
   ];
 
   @override

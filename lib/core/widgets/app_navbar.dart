@@ -63,7 +63,7 @@ class AppNavbar extends StatelessWidget {
               color: AppPallete.accent,
             ),
             label: 'Career',
-          ),
+          ), 
 
           BottomNavigationBarItem(
             icon: Image.asset(AppImages.profile, width: 20),
