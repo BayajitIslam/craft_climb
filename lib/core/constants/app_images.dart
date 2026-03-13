@@ -58,4 +58,6 @@ class AppImages {
 
 
 
+  //Carrer Seeker 
+  static const String stashTarget = 'assets/images/carrer_seeker/stash_target.png';
 }
