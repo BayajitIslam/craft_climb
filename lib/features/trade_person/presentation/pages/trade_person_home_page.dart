@@ -1,6 +1,7 @@
 import 'package:craft_climb/core/local_storage/local_storage.dart';
 import 'package:craft_climb/core/utils/app_bg.dart';
 import 'package:craft_climb/core/widgets/app_navbar.dart';
+import 'package:craft_climb/features/account/presentation/pages/trade_person/trade_person_account_page.dart';
 import 'package:craft_climb/features/courses/presentation/pages/browse_course/career_hub_page.dart';
 import 'package:craft_climb/features/forum/presentation/pages/forum_page.dart';
 import 'package:craft_climb/features/job/presentation/pages/browse_job/jobs_page.dart';
@@ -31,6 +32,7 @@ class _TradePersonHomePageState extends State<TradePersonHomePage> {
     ToolsPage(),
     ForumPage(),
     CareerHubPage(),
+    TradePersonAccountPage(),
   ];
 
   @override

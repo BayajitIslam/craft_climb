@@ -54,4 +54,30 @@ class AppTextStyle {
       fontWeight: fontWeight,
     );
   }
+
+  //Size 12 Weight 400 Inter
+  static TextStyle s12w4i({
+    Color? color,
+    double fontSize = 12.0,
+    FontWeight fontWeight = FontWeight.w400,
+  }) {
+    return GoogleFonts.inter(
+      color: color ?? AppPallete.extraAsh,
+      fontSize: fontSize,
+      fontWeight: fontWeight,
+    );
+  }
+
+  //Size 10 Weight 400 Inter
+  static TextStyle s10w4i({
+    Color? color,
+    double fontSize = 12.0,
+    FontWeight fontWeight = FontWeight.w400,
+  }) {
+    return GoogleFonts.inter(
+      color: color ?? AppPallete.extraAsh,
+      fontSize: fontSize,
+      fontWeight: fontWeight,
+    );
+  }
 }

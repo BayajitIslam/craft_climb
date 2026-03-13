@@ -1,6 +1,7 @@
 import 'package:craft_climb/core/local_storage/local_storage.dart';
 import 'package:craft_climb/core/utils/app_bg.dart';
 import 'package:craft_climb/core/widgets/app_navbar.dart';
+import 'package:craft_climb/features/account/presentation/pages/trainer/trainer_account_page.dart';
 import 'package:craft_climb/features/forum/presentation/pages/forum_page.dart';
 import 'package:craft_climb/features/job/presentation/pages/browse_job/jobs_page.dart';
 import 'package:craft_climb/features/tools/presentation/pages/tools_page.dart';
@@ -30,6 +31,7 @@ class _TrainerHomePageState extends State<TrainerHomePage> {
     ToolsPage(),
     ForumPage(),
     MyCoursePage(),
+    TrainerAccountPage(), 
   ];
 
   @override
