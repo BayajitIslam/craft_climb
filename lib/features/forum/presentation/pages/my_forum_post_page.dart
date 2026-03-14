@@ -7,16 +7,17 @@ import 'package:craft_climb/features/forum/presentation/pages/post_detail_page.d
 import 'package:craft_climb/features/forum/presentation/widgets/post_card.dart';
 import 'package:flutter/material.dart';
 
-class ForumPage extends StatefulWidget {
-  static Route route() => MaterialPageRoute(builder: (_) => const ForumPage());
-  const ForumPage({super.key});
+class MyForumPostPage extends StatefulWidget {
+  static Route route() =>
+      MaterialPageRoute(builder: (_) => const MyForumPostPage());
+  const MyForumPostPage({super.key});
 
   @override
-  State<ForumPage> createState() => _ForumPageState();
+  State<MyForumPostPage> createState() => _MyForumPostPageState();
 }
 
-class _ForumPageState extends State<ForumPage> {
-  final List<Map<String, dynamic>> _posts = [
+class _MyForumPostPageState extends State<MyForumPostPage> {
+  final List<Map<String, dynamic>> _myPosts = [
     {
       'name': 'Nure Jannat Kashfi',
       'time': '2 min ago',
@@ -45,20 +46,6 @@ class _ForumPageState extends State<ForumPage> {
       'likes': 12,
       'comments': 4,
     },
-    {
-      'name': 'Rahamatullah Alam',
-      'time': '5 min ago',
-      'image':
-          'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=600',
-      'profile':
-          'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100',
-      'title': 'Safety First in Construction Sites',
-      'description':
-          'Understanding the core principles of workplace safety and how to implement them effectively on site.',
-      'liked': false,
-      'likes': 8,
-      'comments': 2,
-    },
   ];
 
   @override
@@ -68,7 +55,7 @@ class _ForumPageState extends State<ForumPage> {
         child: Column(
           children: [
             // appbar with create post button
-            _ForumAppBar(
+            _MyForumAppBar(
               onCreatePost: () =>
                   Navigator.push(context, CreatePostPage.route()),
             ),
@@ -80,15 +67,17 @@ class _ForumPageState extends State<ForumPage> {
                   horizontal: context.spacing16,
                   vertical: context.spacing16,
                 ),
-                itemCount: _posts.length,
+                itemCount: _myPosts.length,
                 separatorBuilder: (_, _) => SizedBox(height: context.spacing16),
                 itemBuilder: (_, index) {
-                  final post = _posts[index];
+                  final post = _myPosts[index];
                   return PostCard(
                     post: post,
                     onLike: () => setState(() {
-                      _posts[index]['liked'] = !_posts[index]['liked'];
-                      _posts[index]['likes'] += _posts[index]['liked'] ? 1 : -1;
+                      _myPosts[index]['liked'] = !_myPosts[index]['liked'];
+                      _myPosts[index]['likes'] += _myPosts[index]['liked']
+                          ? 1
+                          : -1;
                     }),
                     onTap: () => Navigator.push(
                       context,
@@ -105,59 +94,54 @@ class _ForumPageState extends State<ForumPage> {
   }
 }
 
-// forum appbar with create post action
-class _ForumAppBar extends StatelessWidget implements PreferredSizeWidget {
+// appbar with create post action
+class _MyForumAppBar extends StatelessWidget implements PreferredSizeWidget {
   final VoidCallback onCreatePost;
 
-  const _ForumAppBar({required this.onCreatePost});
+  const _MyForumAppBar({required this.onCreatePost});
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 
   @override
   Widget build(BuildContext context) {
-    final canGoBack = Navigator.canPop(context);
     return AppBar(
       elevation: 0,
       backgroundColor: Colors.transparent,
-      leadingWidth: canGoBack ? 52 : 0,
-
+      leadingWidth: 52,
       forceMaterialTransparency: true,
-      leading: canGoBack
-          ? Padding(
-              padding: EdgeInsets.only(left: context.spacing12),
-              child: GestureDetector(
-                onTap: () => Navigator.pop(context),
-                child: Container(
-                  width: 32,
-                  height: 32,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    shape: BoxShape.circle,
-                    border: Border.all(color: AppPallete.accent10),
-                    boxShadow: [
-                      BoxShadow(
-                        color: AppPallete.dropShadow,
-                        blurRadius: 4,
-                        offset: const Offset(0, 2),
-                      ),
-                    ],
-                  ),
-                  child: const Icon(
-                    Icons.arrow_back_ios_new,
-                    size: 14,
-                    color: AppPallete.bodyText,
-                  ),
+      leading: Padding(
+        padding: EdgeInsets.only(left: context.spacing12),
+        child: GestureDetector(
+          onTap: () => Navigator.pop(context),
+          child: Container(
+            width: 32,
+            height: 32,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              shape: BoxShape.circle,
+              border: Border.all(color: AppPallete.accent10),
+              boxShadow: [
+                BoxShadow(
+                  color: AppPallete.dropShadow,
+                  blurRadius: 4,
+                  offset: const Offset(0, 2),
                 ),
-              ),
-            )
-          : null,
+              ],
+            ),
+            child: const Icon(
+              Icons.arrow_back_ios_new,
+              size: 14,
+              color: AppPallete.bodyText,
+            ),
+          ),
+        ),
+      ),
       title: Text(
-        'Forum',
+        'My Posts',
         style: AppTextStyle.s16w4i(
           fontWeight: FontWeight.w700,
-          fontSize: 20,
-          color: AppPallete.indigoNavy,
+          color: AppPallete.black,
         ),
       ),
       centerTitle: true,
@@ -170,7 +154,7 @@ class _ForumAppBar extends StatelessWidget implements PreferredSizeWidget {
               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
               decoration: BoxDecoration(
                 color: AppPallete.accent,
-                borderRadius: BorderRadius.circular(4),
+                borderRadius: BorderRadius.circular(8),
               ),
               child: Row(
                 mainAxisSize: MainAxisSize.min,
