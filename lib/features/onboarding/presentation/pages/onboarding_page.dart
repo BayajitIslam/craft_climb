@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:craft_climb/core/constants/app_images.dart';
 import 'package:craft_climb/core/constants/app_strings.dart';
 import 'package:craft_climb/core/local_storage/local_storage.dart';
@@ -110,6 +112,9 @@ class _OnboardingPageState extends State<OnboardingPage> {
                   onPressed: () => nextPage(context),
                 ),
               ),
+              Platform.isAndroid
+                  ? SizedBox(height: 20)
+                  : const SizedBox.shrink(),
             ],
           ),
         ),
