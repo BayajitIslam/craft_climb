@@ -1,5 +1,6 @@
 import 'package:craft_climb/core/theme/app_pallete.dart';
 import 'package:craft_climb/core/theme/app_text_style.dart';
+import 'package:craft_climb/core/widgets/forward_arrow_button.dart';
 import 'package:flutter/material.dart';
 
 class JobCard extends StatelessWidget {
@@ -112,19 +113,7 @@ class JobCard extends StatelessWidget {
             ),
 
             // Arrow
-            Container(
-              height: 32,
-              width: 32,
-              decoration: BoxDecoration(
-                color: AppPallete.accent,
-                borderRadius: BorderRadius.circular(8),
-              ),
-              child: const Icon(
-                Icons.arrow_forward_ios,
-                color: Colors.white,
-                size: 14,
-              ),
-            ),
+            ForwardArrowButton(),
           ],
         ),
       ),
