@@ -82,7 +82,7 @@ class _CareerSeekerDashboardPageState extends State<CareerSeekerDashboardPage> {
 
         // Blue Curve + Search + Banner + Stats
         SizedBox(
-          height: 320,
+          height: 330,
           child: Stack(
             children: [
               // Blue BG
