@@ -1,3 +1,4 @@
+import 'package:craft_climb/features/tools/presentation/pages/cart_page.dart';
 import 'package:craft_climb/features/tools/presentation/pages/product_detail_page.dart';
 import 'package:craft_climb/features/tools/presentation/widgets/product_card.dart';
 import 'package:flutter/material.dart';
@@ -17,22 +18,19 @@ class ProductGrid extends StatelessWidget {
         crossAxisCount: 2,
         crossAxisSpacing: 12,
         mainAxisSpacing: 12,
-        childAspectRatio: 0.72,
+        childAspectRatio: 0.82,
       ),
       itemCount: products.length,
       itemBuilder: (context, index) {
         return ProductCard(
           onAddToCart: () {
-            Navigator.push(
-              context,
-              ProductDetailPage.route(product: products[index]),
-            );
+            Navigator.push(context, CartPage.route());
           },
           product: products[index],
           onTap: () {
             Navigator.push(
               context,
-             ProductDetailPage.route(product: products[index]),
+              ProductDetailPage.route(product: products[index]),
             );
           },
         );
