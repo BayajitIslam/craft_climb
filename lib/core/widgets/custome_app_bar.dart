@@ -2,6 +2,7 @@ import 'package:craft_climb/core/constants/app_images.dart';
 import 'package:craft_climb/core/theme/app_pallete.dart';
 import 'package:craft_climb/core/theme/app_text_style.dart';
 import 'package:craft_climb/core/utils/screen_size.dart';
+import 'package:craft_climb/features/chat/presentation/pages/conversations_page.dart';
 import 'package:flutter/material.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -91,15 +92,20 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         SizedBox(width: context.spacing8),
 
         // Chat
-        Container(
-          width: 32,
-          height: 32,
-          decoration: BoxDecoration(
-            color: AppPallete.primary,
-            shape: BoxShape.circle,
+        GestureDetector(
+          onTap: (){
+            Navigator.push(context, ConversationsPage.route());
+          },
+          child: Container(
+            width: 32,
+            height: 32,
+            decoration: BoxDecoration(
+              color: AppPallete.primary,
+              shape: BoxShape.circle,
+            ),
+            padding: EdgeInsets.all(8),
+            child: Image.asset(AppImages.chat, width: 24),
           ),
-          padding: EdgeInsets.all(8),
-          child: Image.asset(AppImages.chat, width: 24),
         ),
         // Notification
         SizedBox(width: 4),
