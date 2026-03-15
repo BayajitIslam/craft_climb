@@ -46,16 +46,27 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
         child: SafeArea(
           top: false,
           bottom: true,
-          child: Column(
+          child: Stack(
             children: [
-              Column(
-                children: [
-                  _buildImageSection(context),
-                  _buildContentSection(context),
-                ],
+              // ── Scrollable content ──────────────────────
+              SingleChildScrollView(
+                child: Column(
+                  children: [
+                    _buildImageSection(context),
+                    _buildContentSection(context),
+                    SizedBox(height: 80),
+                  ],
+                ),
               ),
-              Spacer(),
-              _buildBottomButton(context),
+
+              // ── Floating bottom button ───────────────────
+              Positioned(
+                // 👈 always sticks to bottom
+                bottom: 0,
+                left: 0,
+                right: 0,
+                child: _buildBottomButton(context),
+              ),
             ],
           ),
         ),

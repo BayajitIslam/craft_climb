@@ -37,52 +37,66 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
             SecandAppBar(title: 'Change Password'),
 
             Expanded(
-              child: SingleChildScrollView(
-                padding: const EdgeInsets.all(16),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const SizedBox(height: 8),
+              child: Stack(
+                //  Stack use
+                children: [
+                  // ── Scrollable fields ──
+                  SingleChildScrollView(
+                    padding: const EdgeInsets.all(16),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const SizedBox(height: 8),
 
-                    // ── Old Password ──
-                    AuthField(
-                      lebel: 'Re Type Password',
-                      hintText: '********',
-                      controller: _reTypePasswordController,
-                      isObscure: true,
-                      isPassword: true,
+                        // ── Old Password ──
+                        AuthField(
+                          lebel: 'Old Password',
+                          hintText: '********',
+                          controller: _oldPasswordController,
+                          isObscure: true,
+                          isPassword: true,
+                        ),
+                        const SizedBox(height: 16),
+
+                        // ── New Password ──
+                        AuthField(
+                          lebel: 'New Password',
+                          hintText: '********',
+                          controller: _newPasswordController,
+                          isObscure: true,
+                          isPassword: true,
+                        ),
+                        const SizedBox(height: 16),
+
+                        // ── Re Type Password ──
+                        AuthField(
+                          lebel: 'Re Type Password',
+                          hintText: '********',
+                          controller: _reTypePasswordController,
+                          isObscure: true,
+                          isPassword: true,
+                        ),
+
+                        const SizedBox(height: 80),
+                      ],
                     ),
-                    const SizedBox(height: 16),
+                  ),
 
-                    // ── New Password ──
-                    AuthField(
-                      lebel: 'Re Type Password',
-                      hintText: '********',
-                      controller: _reTypePasswordController,
-                      isObscure: true,
-                      isPassword: true,
+                  // ── Floating Save Button ──
+                  Positioned(
+                    bottom: 0,
+                    left: 16,
+                    right: 16,
+                    child: Container(
+                      color: Colors.transparent,
+                      padding: const EdgeInsets.only(bottom: 16),
+                      child: PrimaryButton(
+                        buttonName: 'Save',
+                        onPressed: () => Navigator.pop(context),
+                      ),
                     ),
-                    const SizedBox(height: 16),
-
-                    // ── Re Type Password ──
-                    AuthField(
-                      lebel: 'Re Type Password',
-                      hintText: '********',
-                      controller: _reTypePasswordController,
-                      isObscure: true,
-                      isPassword: true,
-                    ),
-
-                    const Spacer(),
-
-                    // ── Save Button ──
-                    PrimaryButton(
-                      buttonName: 'Save',
-                      onPressed: () => Navigator.pop(context),
-                    ),
-                    const SizedBox(height: 8),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
           ],
