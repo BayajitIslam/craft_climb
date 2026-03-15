@@ -82,7 +82,7 @@ class _CareerSeekerDashboardPageState extends State<CareerSeekerDashboardPage> {
 
         // Blue Curve + Search + Banner + Stats
         SizedBox(
-          height: context.screenHeight * 0.35,
+          height: 320,
           child: Stack(
             children: [
               // Blue BG
@@ -232,7 +232,7 @@ class _CareerSeekerDashboardPageState extends State<CareerSeekerDashboardPage> {
                       ),
                       itemCount: featuredJobs.length,
                       itemBuilder: (_, index) => SizedBox(
-                        width: context.screenWidth * 0.6,
+                        width: 270,
                         child: Padding(
                           padding: EdgeInsets.only(
                             right: index == featuredJobs.length - 1 ? 0 : 10,
