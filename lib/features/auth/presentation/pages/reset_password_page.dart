@@ -39,9 +39,10 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       body: AppBg(
         child: SafeArea(
-          child: Padding(
+          child: SingleChildScrollView(
             padding: EdgeInsets.all(context.spacing24),
             child: Column(
               children: [

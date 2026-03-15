@@ -57,7 +57,7 @@ class _LoginAndSignupPageState extends State<LoginAndSignupPage> {
       body: AppBg(
         child: SafeArea(
           maintainBottomViewPadding: true,
-          child: Padding(
+          child: SingleChildScrollView(
             padding: EdgeInsets.all(context.spacing24),
             child: Column(
               children: [
@@ -138,7 +138,7 @@ class _LoginAndSignupPageState extends State<LoginAndSignupPage> {
                 SocialButton(buttonName: AppStrings.continueWithGoogle),
 
                 //only login
-                Spacer(),
+                SizedBox(height: context.spacing32),
                 selectedTab == 0
                     ? Text(
                         AppStrings.termsSignUp,
