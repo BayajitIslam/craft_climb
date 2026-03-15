@@ -30,7 +30,6 @@ class _SubscriptionPageState extends State<SubscriptionPage> {
       priceEUR: '4.99',
       description: 'Perfect to start using the app and discover your balance',
       icon: '⭐',
-      // dailyCost: 'Only \$0.16/day',
     ),
     SubscriptionPlan(
       id: 'quarterly',
@@ -73,92 +72,136 @@ class _SubscriptionPageState extends State<SubscriptionPage> {
 
   @override
   Widget build(BuildContext context) {
+    // Responsive helpers
+    final screenHeight = MediaQuery.of(context).size.height;
+    final isSmallScreen = screenHeight < 700;
+
     return Scaffold(
       body: AppBg(
         child: SafeArea(
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: context.spacing24),
-            child: Column(
-              children: [
-                //<---------------------- Skip ----------------------->
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Container(
-                    height: 48,
-                    width: 48,
-                    decoration: BoxDecoration(
-                      color: AppPallete.transparent,
-                      shape: BoxShape.circle,
-                      boxShadow: [
-                        BoxShadow(
-                          color: AppPallete.white10,
-                          blurRadius: 14,
-                          offset: Offset(0, 0),
-                        ),
-                      ],
-                      border: Border.symmetric(
-                        vertical: BorderSide(
-                          color: AppPallete.white30,
-                          width: 3,
-                        ),
-                      ),
+          child: Column(
+            children: [
+              // ── Scrollable content ──────────────────────────────
+              Expanded(
+                child: SingleChildScrollView(
+                  physics: const ClampingScrollPhysics(),
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: context.spacing24,
                     ),
-                    child: Icon(
-                      Icons.close,
-                      color: AppPallete.bodyText,
-                      size: 20,
+                    child: Column(
+                      children: [
+                        //<------- Skip / Close button ------->
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: Container(
+                            height: 48,
+                            width: 48,
+                            decoration: BoxDecoration(
+                              color: AppPallete.transparent,
+                              shape: BoxShape.circle,
+                              boxShadow: [
+                                BoxShadow(
+                                  color: AppPallete.white10,
+                                  blurRadius: 14,
+                                  offset: const Offset(0, 0),
+                                ),
+                              ],
+                              border: Border.symmetric(
+                                vertical: BorderSide(
+                                  color: AppPallete.white30,
+                                  width: 3,
+                                ),
+                              ),
+                            ),
+                            child: Icon(
+                              Icons.close,
+                              color: AppPallete.bodyText,
+                              size: 20,
+                            ),
+                          ),
+                        ),
+
+                        //<------- Brand Logo ------->
+                        Image.asset(
+                          AppImages.appBennar,
+                          // Shrink logo on small screens
+                          width: isSmallScreen ? 180 : 256,
+                          fit: BoxFit.cover,
+                        ),
+
+                        //<------- Description list ------->
+                        SizedBox(height: context.spacing12),
+                        Column(
+                          spacing: isSmallScreen
+                              ? context.spacing8
+                              : context.spacing12,
+                          children: descriptionText
+                              .map((e) => DescriptionRow(text: e.text))
+                              .toList(),
+                        ),
+
+                        SizedBox(
+                          height: isSmallScreen
+                              ? context.spacing24
+                              : context.spacing32 * 2,
+                        ),
+
+                        //<------- Subscription Cards ------->
+                        Column(
+                          spacing: isSmallScreen
+                              ? context.spacing12
+                              : context.spacing24,
+                          children: plans
+                              .map(
+                                (plan) => SubscriptionCard(
+                                  plan: plan,
+                                  isSelected: isSelected(plan.id),
+                                  onTap: () => selectPlan(plan.id),
+                                ),
+                              )
+                              .toList(),
+                        ),
+
+                        // Bottom padding so content clears the sticky footer
+                        const SizedBox(height: 24),
+                      ],
                     ),
                   ),
                 ),
+              ),
 
-                //<---------------------- Brand Logo ----------------------->
-                Image.asset(AppImages.appBennar, width: 256, fit: BoxFit.cover),
-
-                //<---------------------- Description ----------------------->
-                SizedBox(height: context.spacing12),
-                Column(
-                  spacing: context.spacing12,
-                  children: descriptionText
-                      .map((e) => DescriptionRow(text: e.text))
-                      .toList(),
+              // ── Sticky bottom section (never overlaps) ──────────
+              Container(
+                padding: EdgeInsets.fromLTRB(
+                  context.spacing24,
+                  12,
+                  context.spacing24,
+                  context.spacing16,
                 ),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    //<------- Subscribe Button ------->
+                    PrimaryButton(
+                      borderRadius: 33,
+                      onPressed: () {
+                        final role = LocalStorage.userRole;
+                        RoleRouter.goToHome(context, role);
+                      },
+                      buttonName: 'Subscribe',
+                    ),
 
-                SizedBox(height: context.spacing32 * 2),
-
-                //<---------------------- Subscription Packages ----------------------->
-                // Subscription Cards
-                Column(
-                  spacing: context.spacing24,
-                  children: plans
-                      .map(
-                        (plan) => SubscriptionCard(
-                          plan: plan,
-                          isSelected: isSelected(plan.id),
-                          onTap: () => selectPlan(plan.id),
-                        ),
-                      )
-                      .toList(),
+                    SizedBox(height: context.spacing4),
+                    Text(
+                      'Enjoy 3 days free, than \$4.99/month',
+                      style:
+                          AppTextStyle.s14w4i(color: AppPallete.bodyText),
+                    ),
+                  ],
                 ),
-
-                SizedBox(height: 24),
-                //<---------------------- Subscribe Button ----------------------->
-                PrimaryButton(
-                  borderRadius: 33,
-                  onPressed: () {
-                    final role = LocalStorage.userRole;
-                    RoleRouter.goToHome(context, role);
-                  },
-                  buttonName: 'Subscribe',
-                ),
-
-                //Enjoy your subscription
-                SizedBox(height: context.spacing4),
-                Text(
-                  'Enjoy 3 days free, than \$4.99/month',
-                  style: AppTextStyle.s14w4i(color: AppPallete.bodyText),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
@@ -166,7 +209,7 @@ class _SubscriptionPageState extends State<SubscriptionPage> {
   }
 }
 
-// Subscription Plan
+// ── Subscription Plan model ──────────────────────────────────────────────────
 
 class SubscriptionPlan {
   final String id;

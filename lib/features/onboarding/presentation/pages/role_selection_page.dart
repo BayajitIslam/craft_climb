@@ -94,17 +94,20 @@ class _RoleSelectionPageState extends State<RoleSelectionPage> {
               ),
 
               //Roles
-              ListView.builder(
-                shrinkWrap: true,
-                itemCount: roles.length,
-                physics: const NeverScrollableScrollPhysics(),
-                itemBuilder: (context, index) => RoleOptionCard(
-                  role: roles[index]['role']!,
-                  title: roles[index]['title']!,
-                  description: roles[index]['description']!,
-                  image: roles[index]['image']!,
-                  isRoleSelected: selectedIndex == index,
-                  onTap: () => onRoleSelected(context, index),
+              Expanded(
+                flex: 6,
+                child: ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: roles.length,
+                  
+                  itemBuilder: (context, index) => RoleOptionCard(
+                    role: roles[index]['role']!,
+                    title: roles[index]['title']!,
+                    description: roles[index]['description']!,
+                    image: roles[index]['image']!,
+                    isRoleSelected: selectedIndex == index,
+                    onTap: () => onRoleSelected(context, index),
+                  ),
                 ),
               ),
             ],

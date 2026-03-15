@@ -25,25 +25,28 @@ class RoleOptionCard extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        height: context.screenHeight * 0.10,
+        height: 96,
         decoration: BoxDecoration(
           color: AppPallete.primary,
           borderRadius: BorderRadius.circular(16),
-          boxShadow:  [
-          isRoleSelected  ? BoxShadow(
-              color: const Color(0xFFD5ECFF),
-              blurRadius: 26,
-              spreadRadius: 0,
-              offset: Offset(0, 13),
-          ): BoxShadow(
-              color: AppPallete.dropShadow,
-              blurRadius: 26,
-              spreadRadius: 0,
-              offset: Offset(0, 13),
-            ),
+          boxShadow: [
+            isRoleSelected
+                ? BoxShadow(
+                    color: const Color(0xFFD5ECFF),
+                    blurRadius: 26,
+                    spreadRadius: 0,
+                    offset: Offset(0, 13),
+                  )
+                : BoxShadow(
+                    color: AppPallete.dropShadow,
+                    blurRadius: 26,
+                    spreadRadius: 0,
+                    offset: Offset(0, 13),
+                  ),
           ],
-          border: isRoleSelected ? Border.all(color: AppPallete.accent,width: 3) : null,
-          
+          border: isRoleSelected
+              ? Border.all(color: AppPallete.accent, width: 3)
+              : null,
         ),
         padding: EdgeInsets.symmetric(horizontal: 8, vertical: 9),
         margin: EdgeInsets.only(top: 12),
