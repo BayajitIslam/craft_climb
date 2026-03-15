@@ -21,7 +21,7 @@ class TrainerDashboardPage extends StatelessWidget {
 
         //Body
         SizedBox(
-          height: context.screenHeight * 0.25,
+          height: 225,
           child: Stack(
             children: [
               //Container

@@ -35,7 +35,7 @@ class _TradePersonDashboardPageState extends State<TradePersonDashboardPage> {
 
         // ── Blue curve + Search + Banner ──
         SizedBox(
-          height: context.screenHeight * 0.20,
+          height: 185,
           child: Stack(
             children: [
               // Blue background

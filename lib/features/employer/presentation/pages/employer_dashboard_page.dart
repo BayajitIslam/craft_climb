@@ -56,7 +56,7 @@ class _EmployerDashboardPageState extends State<EmployerDashboardPage> {
 
         // ── Blue curve + Search + Stats ──
         SizedBox(
-          height: context.screenHeight * 0.26,
+          height: 230,
           child: Stack(
             children: [
               // Blue background
