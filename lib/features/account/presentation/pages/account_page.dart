@@ -9,6 +9,7 @@ import 'package:craft_climb/features/account/presentation/widgets/account_premiu
 import 'package:craft_climb/features/account/presentation/widgets/account_progress_card.dart';
 import 'package:craft_climb/features/account/presentation/widgets/account_user_card.dart';
 import 'package:craft_climb/features/auth/presentation/pages/change_password_page.dart';
+import 'package:craft_climb/features/auth/presentation/pages/login_and_signup_page.dart';
 import 'package:flutter/material.dart';
 
 class AccountPage extends StatelessWidget {
@@ -85,6 +86,15 @@ class AccountPage extends StatelessWidget {
                           },
                         ),
                         AccountMenuItem(title: 'Delete Account', onTap: () {}),
+                        AccountMenuItem(
+                          title: 'Logout',
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              LoginAndSignupPage.routeWith(),
+                            );
+                          },
+                        ),
                       ],
                     ),
                     const SizedBox(height: 16),
