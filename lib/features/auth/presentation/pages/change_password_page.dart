@@ -5,7 +5,7 @@ import 'package:craft_climb/features/auth/presentation/widgets/auth_field.dart';
 import 'package:flutter/material.dart';
 
 class ChangePasswordPage extends StatefulWidget {
-  static Route route() => 
+  static Route route() =>
       MaterialPageRoute(builder: (_) => const ChangePasswordPage());
   const ChangePasswordPage({super.key});
 
@@ -29,6 +29,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       body: AppBg(
         child: Column(
           children: [
@@ -36,7 +37,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
             SecandAppBar(title: 'Change Password'),
 
             Expanded(
-              child: Padding(
+              child: SingleChildScrollView(
                 padding: const EdgeInsets.all(16),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
