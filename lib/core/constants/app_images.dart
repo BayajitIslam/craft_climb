@@ -3,6 +3,9 @@ class AppImages {
   static const String appBackground = 'assets/images/app_bg.png';
   static const String appLogo = 'assets/images/launcher_ic.png';
 
+  //General
+  static const String forwardArrow = 'assets/icons/arrow.png';
+
   //Onboarding
   static const String onboarding1 = 'assets/images/onboarding/onboarding_1.jpg';
   static const String onboarding2 = 'assets/images/onboarding/onboarding_2.jpg';
