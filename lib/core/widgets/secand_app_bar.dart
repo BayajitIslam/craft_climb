@@ -26,7 +26,11 @@ class SecandAppBar extends StatelessWidget implements PreferredSizeWidget {
       centerTitle: true,
       title: Text(
         title,
-        style: AppTextStyle.s24w7i(color: color, fontSize: 20),
+        style: AppTextStyle.s24w7i(
+          color: color,
+          fontSize: 20,
+          fontWeight: FontWeight.w800,
+        ),
       ),
       actionsPadding: const EdgeInsets.only(right: 16),
       actions: [

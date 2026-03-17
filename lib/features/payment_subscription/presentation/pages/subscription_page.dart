@@ -195,8 +195,7 @@ class _SubscriptionPageState extends State<SubscriptionPage> {
                     SizedBox(height: context.spacing4),
                     Text(
                       'Enjoy 3 days free, than \$4.99/month',
-                      style:
-                          AppTextStyle.s14w4i(color: AppPallete.bodyText),
+                      style: AppTextStyle.s14w4i(color: AppPallete.bodyText),
                     ),
                   ],
                 ),
@@ -232,5 +231,5 @@ class SubscriptionPlan {
     this.dailyCost,
   });
 
-  String get displayPrice => '\$$priceUSD/€$priceEUR';
+  String get displayPrice => '\$$priceUSD';
 }
