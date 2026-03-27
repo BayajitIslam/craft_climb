@@ -20,31 +20,27 @@ class _MyForumPostPageState extends State<MyForumPostPage> {
   final List<Map<String, dynamic>> _myPosts = [
     {
       'name': 'Nure Jannat Kashfi',
+      'username': 'nure_j',
+      'location': 'Dhaka, Bangladesh',
+      'verified': false,
       'time': '2 min ago',
       'image':
           'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600',
+      'images': [
+        'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600',
+        'https://images.unsplash.com/photo-1590674899484-d5640e854abe?w=600',
+      ],
       'profile':
           'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100',
       'title': 'Building the Future with Smart Engineering',
-      'description':
-          'Innovative Civil Engineering Solutions That Shape Stronger, Safer, And Smarter Infrastructure. See More...',
-      'liked': true,
+      'caption': 'Building the Future with Smart Engineering',
+      'description': 'Innovative Civil Engineering Solutions...',
+      'likedBy': 'craig_love',
       'likes': 12,
       'comments': 4,
-    },
-    {
-      'name': 'Nure Jannat Kashfi',
-      'time': '2 min ago',
-      'image':
-          'https://images.unsplash.com/photo-1590674899484-d5640e854abe?w=600',
-      'profile':
-          'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100',
-      'title': 'Engineering Tomorrow\'s Infrastructure Today',
-      'description':
-          'From Planning To Execution, We Turn Ideas Into Lasting Structures.',
       'liked': false,
-      'likes': 12,
-      'comments': 4,
+      'saved': false,
+      'date': 'September 19',
     },
   ];
 
@@ -83,6 +79,9 @@ class _MyForumPostPageState extends State<MyForumPostPage> {
                       context,
                       PostDetailPage.route(post: post),
                     ),
+                    onSave: () => setState(() {
+                      _myPosts[index]['saved'] = !_myPosts[index]['saved'];
+                    }),
                   );
                 },
               ),
