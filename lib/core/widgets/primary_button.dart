@@ -1,10 +1,12 @@
 import 'package:craft_climb/core/theme/app_pallete.dart';
 import 'package:craft_climb/core/theme/app_text_style.dart';
+import 'package:craft_climb/core/widgets/app_loader.dart';
 import 'package:flutter/material.dart';
 
 class PrimaryButton extends StatelessWidget {
   final String buttonName;
   final double borderRadius;
+  final bool isLoading;
   final void Function()? onPressed;
 
   const PrimaryButton({
@@ -12,6 +14,7 @@ class PrimaryButton extends StatelessWidget {
     required this.buttonName,
     required this.onPressed,
     this.borderRadius = 10,
+    this.isLoading = false,
   });
 
   @override
@@ -25,14 +28,16 @@ class PrimaryButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(borderRadius),
         ),
       ),
-      child: Text(
-        buttonName,
-        style: AppTextStyle.s16w4i(
-          color: AppPallete.primary,
-          fontSize: 18,
-          fontWeight: FontWeight.w600,
-        ),
-      ),
+      child: isLoading
+          ? AppLoader()
+          : Text(
+              buttonName,
+              style: AppTextStyle.s16w4i(
+                color: AppPallete.primary,
+                fontSize: 18,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
     );
   }
 }
