@@ -2,6 +2,7 @@ import 'package:craft_climb/core/theme/app_pallete.dart';
 import 'package:craft_climb/core/theme/app_text_style.dart';
 import 'package:craft_climb/core/utils/app_bg.dart';
 import 'package:craft_climb/core/utils/screen_size.dart';
+import 'package:craft_climb/core/widgets/secand_app_bar.dart';
 import 'package:craft_climb/features/forum/presentation/pages/create_post_page.dart';
 import 'package:craft_climb/features/forum/presentation/pages/post_detail_page.dart';
 import 'package:craft_climb/features/forum/presentation/widgets/post_card.dart';
@@ -18,70 +19,74 @@ class ForumPage extends StatefulWidget {
 class _ForumPageState extends State<ForumPage> {
   final List<Map<String, dynamic>> _posts = [
     {
-      'name': 'Nure Jannat Kashfi',
-      'time': '2 min ago',
-      'image':
-          'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600',
-      'profile':
-          'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100',
-      'title': 'Building the Future with Smart Engineering',
-      'description':
-          'Innovative Civil Engineering Solutions That Shape Stronger, Safer, And Smarter Infrastructure. See More...',
-      'liked': true,
-      'likes': 12,
-      'comments': 4,
-    },
-    {
-      'name': 'Nure Jannat Kashfi',
-      'time': '2 min ago',
-      'image':
-          'https://images.unsplash.com/photo-1590674899484-d5640e854abe?w=600',
-      'profile':
-          'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100',
-      'title': 'Engineering Tomorrow\'s Infrastructure Today',
-      'description':
-          'From Planning To Execution, We Turn Ideas Into Lasting Structures.',
-      'liked': false,
-      'likes': 12,
-      'comments': 4,
-    },
-    {
-      'name': 'Rahamatullah Alam',
-      'time': '5 min ago',
-      'image':
-          'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=600',
+      'name': 'joshua_l',
+      'username': 'joshua_l',
+      'location': 'Tokyo, Japan',
+      'verified': true,
       'profile':
           'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100',
-      'title': 'Safety First in Construction Sites',
-      'description':
-          'Understanding the core principles of workplace safety and how to implement them effectively on site.',
+      'images': [
+        'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400',
+        'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=400',
+        'https://images.unsplash.com/photo-1590674899484-d5640e854abe?w=400',
+        'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400',
+        'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=400',
+        'https://images.unsplash.com/photo-1590674899484-d5640e854abe?w=400',
+      ],
+      'likedBy': 'craig_love',
+      'likes': 7,
+      'caption':
+          'The game in Japan was amazing and I want to share some photos',
+      'date': 'September 19',
+      'comments': 4,
       'liked': false,
-      'likes': 8,
-      'comments': 2,
+      'saved': false,
+    },
+    {
+      'name': 'Nure Jannat',
+      'username': 'nure_j',
+      'location': 'Dhaka, Bangladesh',
+      'verified': false,
+      'profile':
+          'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100',
+      'images': [
+        'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400',
+        'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=400',
+      ],
+      'likedBy': 'raham_alam',
+      'likes': 1240,
+      'caption': 'Building the Future with Smart Engineering solutions.',
+      'date': 'September 20',
+      'comments': 8,
+      'liked': true,
+      'saved': false,
     },
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: AppBg(
         child: Column(
           children: [
-            // appbar with create post button
-            _ForumAppBar(
-              onCreatePost: () =>
-                  Navigator.push(context, CreatePostPage.route()),
+            // top appbar
+            SecandAppBar(title: 'Forum'),
+
+            // create post input bar
+            _CreatePostBar(
+              onTap: () => Navigator.push(context, CreatePostPage.route()),
             ),
 
-            // posts list
+            Divider(height: 1, color: Colors.grey.shade200),
+
+            // posts feed
             Expanded(
               child: ListView.separated(
-                padding: EdgeInsets.symmetric(
-                  horizontal: context.spacing16,
-                  vertical: context.spacing16,
-                ),
+                padding: EdgeInsets.symmetric(horizontal: context.spacing16),
                 itemCount: _posts.length,
-                separatorBuilder: (_, _) => SizedBox(height: context.spacing16),
+                separatorBuilder: (_, _) =>
+                    Divider(height: 1, color: Colors.grey.shade200),
                 itemBuilder: (_, index) {
                   final post = _posts[index];
                   return PostCard(
@@ -89,6 +94,9 @@ class _ForumPageState extends State<ForumPage> {
                     onLike: () => setState(() {
                       _posts[index]['liked'] = !_posts[index]['liked'];
                       _posts[index]['likes'] += _posts[index]['liked'] ? 1 : -1;
+                    }),
+                    onSave: () => setState(() {
+                      _posts[index]['saved'] = !_posts[index]['saved'];
                     }),
                     onTap: () => Navigator.push(
                       context,
@@ -105,91 +113,72 @@ class _ForumPageState extends State<ForumPage> {
   }
 }
 
-// forum appbar with create post action
-class _ForumAppBar extends StatelessWidget implements PreferredSizeWidget {
-  final VoidCallback onCreatePost;
-
-  const _ForumAppBar({required this.onCreatePost});
-
-  @override
-  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
+// instagram style create post bar
+class _CreatePostBar extends StatelessWidget {
+  final VoidCallback onTap;
+  const _CreatePostBar({required this.onTap});
 
   @override
   Widget build(BuildContext context) {
-    final canGoBack = Navigator.canPop(context);
-    return AppBar(
-      elevation: 0,
-      backgroundColor: Colors.transparent,
-      leadingWidth: canGoBack ? 52 : 0,
-
-      forceMaterialTransparency: true,
-      leading: canGoBack
-          ? Padding(
-              padding: EdgeInsets.only(left: context.spacing12),
-              child: GestureDetector(
-                onTap: () => Navigator.pop(context),
-                child: Container(
-                  width: 32,
-                  height: 32,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    shape: BoxShape.circle,
-                    border: Border.all(color: AppPallete.accent10),
-                    boxShadow: [
-                      BoxShadow(
-                        color: AppPallete.dropShadow,
-                        blurRadius: 4,
-                        offset: const Offset(0, 2),
-                      ),
-                    ],
-                  ),
-                  child: const Icon(
-                    Icons.arrow_back_ios_new,
-                    size: 14,
-                    color: AppPallete.bodyText,
-                  ),
-                ),
-              ),
-            )
-          : null,
-      title: Text(
-        'Forum',
-        style: AppTextStyle.s16w4i(
-          fontWeight: FontWeight.w700,
-          fontSize: 20,
-          color: AppPallete.indigoNavy,
-        ),
+    return Padding(
+      padding: EdgeInsets.symmetric(
+        horizontal: context.spacing16,
+        vertical: context.spacing8,
       ),
-      centerTitle: true,
-      actions: [
-        Padding(
-          padding: EdgeInsets.only(right: context.spacing16),
-          child: GestureDetector(
-            onTap: onCreatePost,
-            child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-              decoration: BoxDecoration(
-                color: AppPallete.accent,
-                borderRadius: BorderRadius.circular(4),
-              ),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  const Icon(Icons.add, color: Colors.white, size: 14),
-                  const SizedBox(width: 4),
-                  Text(
-                    'Create Post',
-                    style: AppTextStyle.s12w4i(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                ],
+      child: Row(
+        children: [
+          // user avatar
+          CircleAvatar(
+            radius: 18,
+            backgroundImage: const NetworkImage(
+              'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100',
+            ),
+            backgroundColor: AppPallete.accent10,
+          ),
+          SizedBox(width: context.spacing12),
+
+          // input box
+          Expanded(
+            child: GestureDetector(
+              onTap: onTap,
+              child: Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 12,
+                ),
+                decoration: BoxDecoration(
+                  color: Colors.grey.shade100,
+                  borderRadius: BorderRadius.circular(24),
+                ),
+                child: Text(
+                  "What's on your mind?",
+                  style: AppTextStyle.s14w4i(color: Colors.grey.shade500),
+                ),
               ),
             ),
           ),
-        ),
-      ],
+          SizedBox(width: context.spacing8),
+
+          // post button
+          GestureDetector(
+            onTap: onTap,
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+              decoration: BoxDecoration(
+                color: AppPallete.accent,
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Text(
+                'Post',
+                style: AppTextStyle.s14w4i(
+                  color: Colors.white,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
