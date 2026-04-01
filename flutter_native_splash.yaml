@@ -4,7 +4,7 @@ flutter_native_splash:
 
   image: assets/images/launcher_icon.png
   image_android: assets/images/launcher_icon.png
-  image_ios: assets/images/launcher_icon.png
+  image_ios: assets/images/launcher_ic.png
 
   android_gravity: fill 
 
