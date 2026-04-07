@@ -95,11 +95,11 @@ class _RoleSelectionPageState extends State<RoleSelectionPage> {
 
               //Roles
               Expanded(
-                flex: 6,
+                flex: 7,
                 child: ListView.builder(
                   shrinkWrap: true,
                   itemCount: roles.length,
-                  
+
                   itemBuilder: (context, index) => RoleOptionCard(
                     role: roles[index]['role']!,
                     title: roles[index]['title']!,

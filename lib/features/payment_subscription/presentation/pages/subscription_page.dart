@@ -94,30 +94,36 @@ class _SubscriptionPageState extends State<SubscriptionPage> {
                         //<------- Skip / Close button ------->
                         Align(
                           alignment: Alignment.centerLeft,
-                          child: Container(
-                            height: 48,
-                            width: 48,
-                            decoration: BoxDecoration(
-                              color: AppPallete.transparent,
-                              shape: BoxShape.circle,
-                              boxShadow: [
-                                BoxShadow(
-                                  color: AppPallete.white10,
-                                  blurRadius: 14,
-                                  offset: const Offset(0, 0),
-                                ),
-                              ],
-                              border: Border.symmetric(
-                                vertical: BorderSide(
-                                  color: AppPallete.white30,
-                                  width: 3,
+                          child: GestureDetector(
+                            onTap: () {
+                              final role = LocalStorage.userRole;
+                              RoleRouter.goToHome(context, role);
+                            },
+                            child: Container(
+                              height: 48,
+                              width: 48,
+                              decoration: BoxDecoration(
+                                color: AppPallete.transparent,
+                                shape: BoxShape.circle,
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: AppPallete.white10,
+                                    blurRadius: 14,
+                                    offset: const Offset(0, 0),
+                                  ),
+                                ],
+                                border: Border.symmetric(
+                                  vertical: BorderSide(
+                                    color: AppPallete.white30,
+                                    width: 3,
+                                  ),
                                 ),
                               ),
-                            ),
-                            child: Icon(
-                              Icons.close,
-                              color: AppPallete.bodyText,
-                              size: 20,
+                              child: Icon(
+                                Icons.close,
+                                color: AppPallete.bodyText,
+                                size: 20,
+                              ),
                             ),
                           ),
                         ),

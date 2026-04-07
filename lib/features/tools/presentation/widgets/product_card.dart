@@ -37,27 +37,28 @@ class ProductCard extends StatelessWidget {
             // Image
             Stack(
               children: [
+                // In ProductCard — replace the hardcoded height: 120
                 ClipRRect(
                   borderRadius: const BorderRadius.vertical(
                     top: Radius.circular(12),
                   ),
-                  child: Image.network(
-                    product['image'],
-                    width: double.infinity,
-                    height: 120,
-                    fit: BoxFit.cover,
-                    errorBuilder: (_, _, _) => Container(
+                  child: AspectRatio(
+                    aspectRatio:
+                        1 / 0.55, // matches cardWidth * 0.55 logic above
+                    child: Image.network(
+                      product['image'],
                       width: double.infinity,
-                      height: 120,
-                      color: AppPallete.accent10,
-                      child: Icon(
-                        Icons.image_outlined,
-                        color: AppPallete.accent,
+                      fit: BoxFit.cover,
+                      errorBuilder: (_, _, _) => Container(
+                        color: AppPallete.accent10,
+                        child: Icon(
+                          Icons.image_outlined,
+                          color: AppPallete.accent,
+                        ),
                       ),
                     ),
                   ),
                 ),
-
                 // Price tag
                 Positioned(
                   top: 6,

@@ -44,6 +44,13 @@ class _CareerSeekerDashboardPageState extends State<CareerSeekerDashboardPage> {
       'image':
           'https://images.unsplash.com/photo-1590674899484-d5640e854abe?w=400',
     },
+    {
+      'title': 'Construction Visit',
+      'lectures': 32,
+      'progress': 0.65,
+      'image':
+          'https://images.unsplash.com/photo-1590674899484-d5640e854abe?w=400',
+    },
   ];
 
   final List<Map<String, String>> featuredJobs = [
@@ -67,205 +74,186 @@ class _CareerSeekerDashboardPageState extends State<CareerSeekerDashboardPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        // ══════════════════════════════════════
-        // FIXED — এই সব scroll হবে না
-        // ══════════════════════════════════════
-
-        // AppBar
-        CustomAppBar(
-          name: 'Ovie Rahaman',
-          role: 'Career Seeker',
-          badge: 'Wolf',
-        ),
-
-        // Blue Curve + Search + Banner + Stats
-        SizedBox(
-          height: 330,
-          child: Stack(
-            children: [
-              // Blue BG
-              Container(
-                width: context.screenWidth,
-                height: context.screenHeight * 0.07,
-                decoration: BoxDecoration(
-                  color: AppPallete.accent,
-                  borderRadius: const BorderRadius.only(
-                    bottomLeft: Radius.elliptical(55, 33),
-                    bottomRight: Radius.elliptical(55, 33),
-                  ),
-                ),
-              ),
-
-              // Search
-              Positioned(
-                top: context.spacing32,
-                left: 24,
-                right: 24,
-                child: CustomeSearchbar(
-                  controller: _searchController,
-                  hintText: 'Search ....',
-                  onChanged: (v) => setState(() => searchQuery = v),
-                  onClear: () {
-                    _searchController.clear();
-                    setState(() => searchQuery = '');
-                  },
-                ),
-              ),
-
-              // Complete Profile Banner
-              Positioned(
-                top: context.spacing32 * 3,
-                left: 24,
-                right: 24,
-                child: CompleteProfileBanner(progress: 0.75, onTap: () {}),
-              ),
-
-              // Stat Cards
-              Positioned(
-                top: context.spacing32 * 6 - context.spacing8,
-                left: 24,
-                right: 24,
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: StatCard(
-                        value: '29',
-                        label: 'Jobs Applied',
-                        color: const Color(0xFF4C6EF5),
-                        icon: Icons.check_circle_outline_rounded,
-                        gradient: const LinearGradient(
-                          colors: [Color(0xFF3B5BDB), Color(0xFF5C7CFA)],
-                          begin: Alignment.topLeft,
-                          end: Alignment.bottomRight,
-                        ),
-                        onTap: () =>
-                            Navigator.push(context, AppliedJobsPage.route()),
-                      ),
-                    ),
-                    SizedBox(width: context.spacing8),
-                    Expanded(
-                      child: StatCard(
-                        value: '3',
-                        label: 'Interview',
-                        color: const Color(0xFF4DABF7),
-                        icon: Icons.help_outline_rounded,
-                        gradient: const LinearGradient(
-                          colors: [Color(0xFF0f1729), Color(0xFF1e3b8a)],
-                          begin: Alignment.topLeft,
-                          end: Alignment.bottomRight,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
+    return CustomScrollView(
+      slivers: [
+        // ── AppBar ──────────────────────────────
+        SliverToBoxAdapter(
+          child: CustomAppBar(
+            name: 'Ovie Rahaman',
+            role: 'Career Seeker',
+            badge: 'Wolf',
           ),
         ),
 
-        // ══════════════════════════════════════
-        // SCROLLABLE
-        // ══════════════════════════════════════
-        Expanded(
-          child: SingleChildScrollView(
-            child: Column(
+        // ── Blue hero: search + banner + stat cards ──
+        SliverToBoxAdapter(
+          child: SizedBox(
+            height: 330,
+            child: Stack(
               children: [
-                SizedBox(height: context.spacing16),
-
-                // ── My Courses ──
-                if (courses.isNotEmpty) ...[
-                  Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: context.spacing24,
+                // Blue curved background
+                Container(
+                  width: context.screenWidth,
+                  height: context.screenHeight * 0.07,
+                  decoration: BoxDecoration(
+                    color: AppPallete.accent,
+                    borderRadius: const BorderRadius.only(
+                      bottomLeft: Radius.elliptical(55, 33),
+                      bottomRight: Radius.elliptical(55, 33),
                     ),
-                    child: SectionHeader(title: 'My Courses', onSeeAll: () {}),
-                  ),
-                  SizedBox(height: context.spacing12),
-                  SizedBox(
-                    height: 170,
-                    child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      padding: EdgeInsets.symmetric(
-                        horizontal: context.spacing24,
-                      ),
-                      itemCount: courses.length,
-                      itemBuilder: (_, index) => SizedBox(
-                        width: context.screenWidth * 0.45,
-                        child: Padding(
-                          padding: EdgeInsets.only(
-                            right: index == courses.length - 1 ? 0 : 8,
-                          ),
-                          child: CSCourseCard(
-                            title: courses[index]['title'],
-                            lectures: courses[index]['lectures'],
-                            progress: courses[index]['progress'],
-                            imageUrl: courses[index]['image'],
-                            onTap: () {},
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: context.spacing16),
-                ],
-
-                // ── Featured Jobs ──
-                if (featuredJobs.isNotEmpty) ...[
-                  Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: context.spacing24,
-                    ),
-                    child: SectionHeader(
-                      title: 'Featured Jobs',
-                      onSeeAll: () {},
-                    ),
-                  ),
-                  SizedBox(height: context.spacing8),
-                  SizedBox(
-                    height: 100,
-                    child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      padding: EdgeInsets.symmetric(
-                        horizontal: context.spacing24,
-                      ),
-                      itemCount: featuredJobs.length,
-                      itemBuilder: (_, index) => SizedBox(
-                        width: 270,
-                        child: Padding(
-                          padding: EdgeInsets.only(
-                            right: index == featuredJobs.length - 1 ? 0 : 10,
-                          ),
-                          child: CSFeaturedJobCard(
-                            title: featuredJobs[index]['title']!,
-                            location: featuredJobs[index]['location']!,
-                            salary: featuredJobs[index]['salary']!,
-                            type: featuredJobs[index]['type']!,
-                            imageUrl: featuredJobs[index]['image']!,
-                            onTap: () {},
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: context.spacing16),
-                ],
-
-                // ── Career Roadmap ──
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: context.spacing24),
-                  child: CareerRoadmapBanner(
-                    progress: 65,
-                    onViewDetails: () {},
                   ),
                 ),
 
-                SizedBox(height: context.spacing24),
+                // Search bar
+                Positioned(
+                  top: context.spacing32,
+                  left: 24,
+                  right: 24,
+                  child: CustomeSearchbar(
+                    controller: _searchController,
+                    hintText: 'Search ....',
+                    onChanged: (v) => setState(() => searchQuery = v),
+                    onClear: () {
+                      _searchController.clear();
+                      setState(() => searchQuery = '');
+                    },
+                  ),
+                ),
+
+                // Complete Profile Banner
+                Positioned(
+                  top: context.spacing32 * 3,
+                  left: 24,
+                  right: 24,
+                  child: CompleteProfileBanner(progress: 0.75, onTap: () {}),
+                ),
+
+                // Stat cards
+                Positioned(
+                  top: context.spacing32 * 6 - context.spacing8,
+                  left: 24,
+                  right: 24,
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: StatCard(
+                          value: '29',
+                          label: 'Jobs Applied',
+                          color: const Color(0xFF4C6EF5),
+                          icon: Icons.check_circle_outline_rounded,
+                          gradient: const LinearGradient(
+                            colors: [Color(0xFF3B5BDB), Color(0xFF5C7CFA)],
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
+                          ),
+                          onTap: () =>
+                              Navigator.push(context, AppliedJobsPage.route()),
+                        ),
+                      ),
+                      SizedBox(width: context.spacing8),
+                      Expanded(
+                        child: StatCard(
+                          value: '3',
+                          label: 'Interview',
+                          color: const Color(0xFF4DABF7),
+                          icon: Icons.help_outline_rounded,
+                          gradient: const LinearGradient(
+                            colors: [Color(0xFF0f1729), Color(0xFF1e3b8a)],
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
         ),
+
+        SliverToBoxAdapter(child: SizedBox(height: context.spacing16)),
+
+        // ── My Courses — 2-column responsive grid ──
+        if (courses.isNotEmpty) ...[
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: context.spacing24),
+              child: SectionHeader(title: 'My Courses', onSeeAll: () {}),
+            ),
+          ),
+          SliverToBoxAdapter(child: SizedBox(height: context.spacing12)),
+          SliverPadding(
+            padding: EdgeInsets.symmetric(horizontal: context.spacing24),
+            sliver: SliverGrid(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2, // always 2 columns
+                crossAxisSpacing: 12,
+                mainAxisSpacing: 12,
+                childAspectRatio: 0.85, // adjust to match CSCourseCard height
+              ),
+              delegate: SliverChildBuilderDelegate(
+                (_, index) => CSCourseCard(
+                  title: courses[index]['title'],
+                  lectures: courses[index]['lectures'],
+                  progress: courses[index]['progress'],
+                  imageUrl: courses[index]['image'],
+                  onTap: () {},
+                ),
+                childCount: courses.length,
+              ),
+            ),
+          ),
+          SliverToBoxAdapter(child: SizedBox(height: context.spacing16)),
+        ],
+
+        // ── Featured Jobs — horizontal scroll ──
+        if (featuredJobs.isNotEmpty) ...[
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: context.spacing24),
+              child: SectionHeader(title: 'Featured Jobs', onSeeAll: () {}),
+            ),
+          ),
+          SliverToBoxAdapter(child: SizedBox(height: context.spacing8)),
+          SliverToBoxAdapter(
+            child: SizedBox(
+              height: 100,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                padding: EdgeInsets.symmetric(horizontal: context.spacing24),
+                itemCount: featuredJobs.length,
+                itemBuilder: (_, index) => SizedBox(
+                  width: 270,
+                  child: Padding(
+                    padding: EdgeInsets.only(
+                      right: index == featuredJobs.length - 1 ? 0 : 10,
+                    ),
+                    child: CSFeaturedJobCard(
+                      title: featuredJobs[index]['title']!,
+                      location: featuredJobs[index]['location']!,
+                      salary: featuredJobs[index]['salary']!,
+                      type: featuredJobs[index]['type']!,
+                      imageUrl: featuredJobs[index]['image']!,
+                      onTap: () {},
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          SliverToBoxAdapter(child: SizedBox(height: context.spacing16)),
+        ],
+
+        // ── Career Roadmap ──
+        SliverToBoxAdapter(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: context.spacing24),
+            child: CareerRoadmapBanner(progress: 65, onViewDetails: () {}),
+          ),
+        ),
+
+        SliverToBoxAdapter(child: SizedBox(height: context.spacing24)),
       ],
     );
   }
