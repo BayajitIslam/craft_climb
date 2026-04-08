@@ -99,7 +99,7 @@ class _CareerHubPageState extends State<CareerHubPage> {
                 crossAxisCount: 2,
                 mainAxisSpacing: 16,
                 crossAxisSpacing: 12,
-                childAspectRatio: 1,
+                mainAxisExtent: 175
               ),
               itemBuilder: (_, index) => CourseCard(
                 title: courses[index]['title'],
