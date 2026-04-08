@@ -12,7 +12,8 @@ import 'package:craft_climb/features/career_seeker/presentation/widgets/section_
 import 'package:flutter/material.dart';
 
 class CareerSeekerDashboardPage extends StatefulWidget {
-  const CareerSeekerDashboardPage({super.key});
+  final void Function(int index)? onNavigate;
+  const CareerSeekerDashboardPage({super.key, this.onNavigate});
 
   @override
   State<CareerSeekerDashboardPage> createState() =>
@@ -31,7 +32,7 @@ class _CareerSeekerDashboardPageState extends State<CareerSeekerDashboardPage> {
 
   final List<Map<String, dynamic>> courses = [
     {
-      'title': 'Construction Visit',
+      'title': 'Construction Visit Test long text here ',
       'lectures': 32,
       'progress': 0.65,
       'image':
@@ -75,6 +76,8 @@ class _CareerSeekerDashboardPageState extends State<CareerSeekerDashboardPage> {
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(
+      //no bounce
+      physics: const ClampingScrollPhysics(),
       slivers: [
         // ── AppBar ──────────────────────────────
         SliverToBoxAdapter(
@@ -179,7 +182,12 @@ class _CareerSeekerDashboardPageState extends State<CareerSeekerDashboardPage> {
           SliverToBoxAdapter(
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: context.spacing24),
-              child: SectionHeader(title: 'My Courses', onSeeAll: () {}),
+              child: SectionHeader(
+                title: 'My Courses',
+                onSeeAll: () {
+                  widget.onNavigate?.call(4);
+                },
+              ),
             ),
           ),
           SliverToBoxAdapter(child: SizedBox(height: context.spacing12)),
@@ -212,7 +220,12 @@ class _CareerSeekerDashboardPageState extends State<CareerSeekerDashboardPage> {
           SliverToBoxAdapter(
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: context.spacing24),
-              child: SectionHeader(title: 'Featured Jobs', onSeeAll: () {}),
+              child: SectionHeader(
+                title: 'Featured Jobs',
+                onSeeAll: () {
+                  widget.onNavigate?.call(1);
+                },
+              ),
             ),
           ),
           SliverToBoxAdapter(child: SizedBox(height: context.spacing8)),

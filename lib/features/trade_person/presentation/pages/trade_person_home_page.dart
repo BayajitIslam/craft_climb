@@ -26,8 +26,10 @@ class _TradePersonHomePageState extends State<TradePersonHomePage> {
   int selectedIndex = 0;
 
   //PAGES
-  final List<Widget> pages = [
-    TradePersonDashboardPage(),
+  List<Widget> get pages => [
+    TradePersonDashboardPage(
+      onNavigate: (index) => setState(() => selectedIndex = index),
+    ),
     JobsPage(),
     ToolsPage(),
     ForumPage(),

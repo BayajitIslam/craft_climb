@@ -50,7 +50,7 @@ class CSCourseCard extends StatelessWidget {
                     height: 110,
                     width: double.infinity,
                     fit: BoxFit.cover,
-                    errorBuilder: (_, __, ___) => Container(
+                    errorBuilder: (_, _, _) => Container(
                       height: 110,
                       color: AppPallete.accent10,
                       child: Icon(
@@ -73,7 +73,7 @@ class CSCourseCard extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "asdfjdshajfhjsadhfjh jsad sdfasdhjkf hjkdsa hdsajk fhjkdshj fdsj h",
+                          title,
                           style: AppTextStyle.s14w4i(
                             fontWeight: FontWeight.w700,
                             color: AppPallete.bodyText,
@@ -102,7 +102,7 @@ class CSCourseCard extends StatelessWidget {
                       ],
                     ),
                   ),
-                  SizedBox(width: 2),
+                  SizedBox(width: 3),
                   //Score
                   ScoreRing(score: (progress * 100).toInt()),
                 ],

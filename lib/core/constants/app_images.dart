@@ -16,7 +16,7 @@ class AppImages {
   static const String onboardingEmployer =
       'assets/images/onboarding/employer.jpg';
   static const String onboardingTradePerson =
-      'assets/images/onboarding/trade person.jpg';
+      'assets/images/onboarding/trade person.png';
   static const String onboardingTrainer =
       'assets/images/onboarding/trainer.jpg';
 
@@ -26,6 +26,9 @@ class AppImages {
 
   //Subscription
   static const String back = 'assets/icons/back.png';
+  static const String crown = 'assets/images/subscription/crown.png';
+  static const String star = 'assets/images/subscription/star.png';
+  static const String trophy = 'assets/images/subscription/trophy.png';
 
   //Navbar
   static const String home = 'assets/icons/app_navbar/li_home.png';
@@ -42,6 +45,7 @@ class AppImages {
   static const String notification = 'assets/icons/app_appbar/notification.png';
   static const String badge = 'assets/icons/app_appbar/badge.png';
 
-  //Carrer Seeker 
-  static const String stashTarget = 'assets/images/carrer_seeker/stash_target.png';
+  //Carrer Seeker
+  static const String stashTarget =
+      'assets/images/carrer_seeker/stash_target.png';
 }

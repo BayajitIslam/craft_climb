@@ -10,7 +10,8 @@ import 'package:craft_climb/features/trainer/presentation/widgets/course_card.da
 import 'package:flutter/material.dart';
 
 class TrainerDashboardPage extends StatelessWidget {
-  const TrainerDashboardPage({super.key});
+  final void Function(int index)? onNavigate;
+  const TrainerDashboardPage({super.key, this.onNavigate});
 
   @override
   Widget build(BuildContext context) {
@@ -120,18 +121,27 @@ class TrainerDashboardPage extends StatelessWidget {
                   color: AppPallete.bodyText,
                 ),
               ),
-              Row(
-                children: [
-                  Text(
-                    'See All',
-                    style: AppTextStyle.s14w4i(
-                      color: AppPallete.accent,
-                      fontSize: 12,
+              GestureDetector(
+                onTap: () {
+                  onNavigate!(4);
+                },
+                child: Row(
+                  children: [
+                    Text(
+                      'See All',
+                      style: AppTextStyle.s14w4i(
+                        color: AppPallete.accent,
+                        fontSize: 12,
+                      ),
                     ),
-                  ),
-                  SizedBox(width: 2),
-                  Icon(Icons.chevron_right, color: AppPallete.accent, size: 18),
-                ],
+                    SizedBox(width: 2),
+                    Icon(
+                      Icons.chevron_right,
+                      color: AppPallete.accent,
+                      size: 18,
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
