@@ -9,6 +9,7 @@ import 'package:craft_climb/features/career_seeker/presentation/widgets/complete
 import 'package:craft_climb/features/career_seeker/presentation/widgets/cs_course_card.dart';
 import 'package:craft_climb/features/career_seeker/presentation/widgets/cs_featured_job_card.dart';
 import 'package:craft_climb/features/career_seeker/presentation/widgets/section_header.dart';
+import 'package:craft_climb/features/courses/presentation/pages/browse_course/course_detail_page.dart';
 import 'package:flutter/material.dart';
 
 class CareerSeekerDashboardPage extends StatefulWidget {
@@ -32,21 +33,21 @@ class _CareerSeekerDashboardPageState extends State<CareerSeekerDashboardPage> {
 
   final List<Map<String, dynamic>> courses = [
     {
-      'title': 'Construction Visit Test long text here ',
+      'title': 'Construction Visit Course ',
       'lectures': 32,
       'progress': 0.65,
       'image':
           'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400',
     },
     {
-      'title': 'Construction Visit',
+      'title': 'Construction Visit Course',
       'lectures': 32,
       'progress': 0.65,
       'image':
           'https://images.unsplash.com/photo-1590674899484-d5640e854abe?w=400',
     },
     {
-      'title': 'Construction Visit',
+      'title': 'Construction Visit Course',
       'lectures': 32,
       'progress': 0.65,
       'image':
@@ -198,7 +199,7 @@ class _CareerSeekerDashboardPageState extends State<CareerSeekerDashboardPage> {
                 crossAxisCount: 2, // always 2 columns
                 crossAxisSpacing: 12,
                 mainAxisSpacing: 12,
-                childAspectRatio: 0.85, // adjust to match CSCourseCard height
+                mainAxisExtent: 190,
               ),
               delegate: SliverChildBuilderDelegate(
                 (_, index) => CSCourseCard(
@@ -206,7 +207,9 @@ class _CareerSeekerDashboardPageState extends State<CareerSeekerDashboardPage> {
                   lectures: courses[index]['lectures'],
                   progress: courses[index]['progress'],
                   imageUrl: courses[index]['image'],
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(context, CourseDetailPageView.route());
+                  },
                 ),
                 childCount: courses.length,
               ),
