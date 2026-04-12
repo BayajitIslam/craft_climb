@@ -78,7 +78,7 @@ class _RoleSelectionPageState extends State<RoleSelectionPage> {
               //Image
               SizedBox(height: context.spacing32),
               Image.asset(AppImages.appLogo, width: 200),
-              const Spacer(),
+              SizedBox(height: context.spacing32),
               Align(
                 alignment: Alignment.centerLeft,
                 child: Column(
@@ -94,12 +94,11 @@ class _RoleSelectionPageState extends State<RoleSelectionPage> {
               ),
 
               //Roles
+              SizedBox(height: context.spacing8),
               Expanded(
-                flex: 7,
                 child: ListView.builder(
-                  shrinkWrap: true,
                   itemCount: roles.length,
-
+                  padding: EdgeInsets.zero,
                   itemBuilder: (context, index) => RoleOptionCard(
                     role: roles[index]['role']!,
                     title: roles[index]['title']!,
