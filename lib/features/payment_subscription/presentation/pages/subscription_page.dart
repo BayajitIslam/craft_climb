@@ -29,7 +29,7 @@ class _SubscriptionPageState extends State<SubscriptionPage> {
       priceUSD: '4.99',
       priceEUR: '4.99',
       description: 'Perfect to start using the app and discover your balance',
-      icon: '⭐',
+      icon: AppImages.star,
     ),
     SubscriptionPlan(
       id: 'quarterly',
@@ -37,7 +37,7 @@ class _SubscriptionPageState extends State<SubscriptionPage> {
       priceUSD: '13.99',
       priceEUR: '13.99',
       description: 'Stay consistent and save while building new habits',
-      icon: '🏆',
+      icon: AppImages.trophy,
     ),
     SubscriptionPlan(
       id: 'annual',
@@ -45,7 +45,7 @@ class _SubscriptionPageState extends State<SubscriptionPage> {
       priceUSD: '49.99',
       priceEUR: '49.99',
       description: 'For those serious about long-term results and balance',
-      icon: '👑',
+      icon: AppImages.crown,
       isBestValue: true,
     ),
   ];
@@ -94,30 +94,36 @@ class _SubscriptionPageState extends State<SubscriptionPage> {
                         //<------- Skip / Close button ------->
                         Align(
                           alignment: Alignment.centerLeft,
-                          child: Container(
-                            height: 48,
-                            width: 48,
-                            decoration: BoxDecoration(
-                              color: AppPallete.transparent,
-                              shape: BoxShape.circle,
-                              boxShadow: [
-                                BoxShadow(
-                                  color: AppPallete.white10,
-                                  blurRadius: 14,
-                                  offset: const Offset(0, 0),
-                                ),
-                              ],
-                              border: Border.symmetric(
-                                vertical: BorderSide(
-                                  color: AppPallete.white30,
-                                  width: 3,
+                          child: GestureDetector(
+                            onTap: () {
+                              final role = LocalStorage.userRole;
+                              RoleRouter.goToHome(context, role);
+                            },
+                            child: Container(
+                              height: 48,
+                              width: 48,
+                              decoration: BoxDecoration(
+                                color: AppPallete.transparent,
+                                shape: BoxShape.circle,
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: AppPallete.white10,
+                                    blurRadius: 14,
+                                    offset: const Offset(0, 0),
+                                  ),
+                                ],
+                                border: Border.symmetric(
+                                  vertical: BorderSide(
+                                    color: AppPallete.white30,
+                                    width: 3,
+                                  ),
                                 ),
                               ),
-                            ),
-                            child: Icon(
-                              Icons.close,
-                              color: AppPallete.bodyText,
-                              size: 20,
+                              child: Icon(
+                                Icons.close,
+                                color: AppPallete.bodyText,
+                                size: 20,
+                              ),
                             ),
                           ),
                         ),

@@ -25,8 +25,10 @@ class _CarrerSeekerHomePageState extends State<CarrerSeekerHomePage> {
   //SELECTED INDEX
   int selectedIndex = 0;
   //PAGES LIST
-  final List<Widget> pages = [
-    CareerSeekerDashboardPage(),
+  List<Widget> get pages => [
+    CareerSeekerDashboardPage(
+      onNavigate: (index) => setState(() => selectedIndex = index),
+    ),
     JobsPage(),
     ToolsPage(),
     ForumPage(),

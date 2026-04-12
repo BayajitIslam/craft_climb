@@ -25,13 +25,15 @@ class _TrainerHomePageState extends State<TrainerHomePage> {
   //SELECTED INDEX
   int selectedIndex = 0;
   //PAGES LIST
-  final List<Widget> pages = [
-    TrainerDashboardPage(),
+  List<Widget> get pages => [
+    TrainerDashboardPage(
+      onNavigate: (index) => setState(() => selectedIndex = index),
+    ),
     JobsPage(),
     ToolsPage(),
     ForumPage(),
     MyCoursePage(),
-    TrainerAccountPage(), 
+    TrainerAccountPage(),
   ];
 
   @override

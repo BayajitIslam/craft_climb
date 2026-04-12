@@ -66,7 +66,8 @@ class SubscriptionCard extends StatelessWidget {
                       ],
                     ),
                     child: Center(
-                      child: Text(plan.icon, style: TextStyle(fontSize: 28)),
+                      // child: Text(plan.icon, style: TextStyle(fontSize: 28)),
+                      child: Image.asset(plan.icon, width: 28, height: 28),
                     ),
                   ),
 

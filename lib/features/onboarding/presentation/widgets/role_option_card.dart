@@ -54,8 +54,8 @@ class RoleOptionCard extends StatelessWidget {
           children: [
             //Image
             Container(
-              height: 99,
-              width: 72,
+              height: 72,
+              width: 89,
               clipBehavior: Clip.hardEdge,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12),
@@ -63,7 +63,7 @@ class RoleOptionCard extends StatelessWidget {
               child: Image.asset(
                 image,
                 fit: BoxFit.cover,
-                alignment: Alignment.topCenter,
+                alignment: Alignment.center,
               ),
             ),
 

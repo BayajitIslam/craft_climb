@@ -9,7 +9,8 @@ import 'package:craft_climb/features/job/presentation/widgets/job_card.dart';
 import 'package:flutter/material.dart';
 
 class TradePersonDashboardPage extends StatefulWidget {
-  const TradePersonDashboardPage({super.key});
+  final void Function(int index)? onNavigate;
+  const TradePersonDashboardPage({super.key, this.onNavigate});
 
   @override
   State<TradePersonDashboardPage> createState() =>
@@ -196,18 +197,27 @@ class _TradePersonDashboardPageState extends State<TradePersonDashboardPage> {
                   color: AppPallete.bodyText,
                 ),
               ),
-              Row(
-                children: [
-                  Text(
-                    'See All',
-                    style: AppTextStyle.s14w4i(
-                      color: AppPallete.accent,
-                      fontSize: 12,
+              GestureDetector(
+                onTap: () {
+                  widget.onNavigate!(1);
+                },
+                child: Row(
+                  children: [
+                    Text(
+                      'See All',
+                      style: AppTextStyle.s14w4i(
+                        color: AppPallete.accent,
+                        fontSize: 12,
+                      ),
                     ),
-                  ),
-                  const SizedBox(width: 2),
-                  Icon(Icons.chevron_right, color: AppPallete.accent, size: 18),
-                ],
+                    const SizedBox(width: 2),
+                    Icon(
+                      Icons.chevron_right,
+                      color: AppPallete.accent,
+                      size: 18,
+                    ),
+                  ],
+                ),
               ),
             ],
           ),

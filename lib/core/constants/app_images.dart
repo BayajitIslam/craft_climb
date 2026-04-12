@@ -8,9 +8,9 @@ class AppImages {
 
   //Onboarding
   static const String onboarding1 = 'assets/images/onboarding/onboarding_1.jpg';
-  static const String onboarding2 = 'assets/images/onboarding/onboarding_2.jpg';
+  static const String onboarding2 = 'assets/images/onboarding/onboarding_2.png';
   static const String onboarding3 = 'assets/images/onboarding/onboarding_3.jpg';
-  static const String onboarding4 = 'assets/images/onboarding/onboarding_4.jpg';
+  static const String onboarding4 = 'assets/images/onboarding/onboarding_4.png';
   static const String onboardingCarrerSeeker =
       'assets/images/onboarding/career seeker.jpg';
   static const String onboardingEmployer =
@@ -26,6 +26,9 @@ class AppImages {
 
   //Subscription
   static const String back = 'assets/icons/back.png';
+  static const String crown = 'assets/images/subscription/crown.png';
+  static const String star = 'assets/images/subscription/star.png';
+  static const String trophy = 'assets/images/subscription/trophy.png';
 
   //Navbar
   static const String home = 'assets/icons/app_navbar/li_home.png';
@@ -42,6 +45,7 @@ class AppImages {
   static const String notification = 'assets/icons/app_appbar/notification.png';
   static const String badge = 'assets/icons/app_appbar/badge.png';
 
-  //Carrer Seeker 
-  static const String stashTarget = 'assets/images/carrer_seeker/stash_target.png';
+  //Carrer Seeker
+  static const String stashTarget =
+      'assets/images/carrer_seeker/stash_target.png';
 }

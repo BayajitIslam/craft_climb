@@ -5,6 +5,10 @@ import 'package:craft_climb/features/trainer/presentation/widgets/course_card.da
 import 'package:flutter/material.dart';
 
 class MyCoursePage extends StatelessWidget {
+  //route
+  static Route route() {
+    return MaterialPageRoute(builder: (context) => const MyCoursePage());
+  }
   const MyCoursePage({super.key});
 
   @override

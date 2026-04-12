@@ -50,7 +50,7 @@ class CSCourseCard extends StatelessWidget {
                     height: 110,
                     width: double.infinity,
                     fit: BoxFit.cover,
-                    errorBuilder: (_, __, ___) => Container(
+                    errorBuilder: (_, _, _) => Container(
                       height: 110,
                       color: AppPallete.accent10,
                       child: Icon(
@@ -68,40 +68,42 @@ class CSCourseCard extends StatelessWidget {
               padding: const EdgeInsets.all(8),
               child: Row(
                 children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        title,
-                        style: AppTextStyle.s14w4i(
-                          fontWeight: FontWeight.w700,
-                          color: AppPallete.bodyText,
-                        ),
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                      const SizedBox(height: 4),
-                      Row(
-                        children: [
-                          Icon(
-                            Icons.play_circle,
-                            size: 14,
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          title,
+                          style: AppTextStyle.s14w4i(
+                            fontWeight: FontWeight.w700,
                             color: AppPallete.bodyText,
                           ),
-                          const SizedBox(width: 4),
-                          Text(
-                            '$lectures Lectures',
-                            style: AppTextStyle.s16w4i(
+                          maxLines: 2,
+                          overflow: TextOverflow.visible,
+                        ),
+                        const SizedBox(height: 4),
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.play_circle,
+                              size: 14,
                               color: AppPallete.bodyText,
-                              fontSize: 12,
                             ),
-                          ),
-                        ],
-                      ),
-                    ],
+                            const SizedBox(width: 4),
+                            Text(
+                              '$lectures Lectures',
+                              style: AppTextStyle.s16w4i(
+                                color: AppPallete.bodyText,
+                                fontSize: 12,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
+                  SizedBox(width: 3),
                   //Score
-                  Spacer(),
                   ScoreRing(score: (progress * 100).toInt()),
                 ],
               ),
