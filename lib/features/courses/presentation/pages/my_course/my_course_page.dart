@@ -1,4 +1,3 @@
-import 'package:craft_climb/core/utils/screen_size.dart';
 import 'package:craft_climb/core/widgets/secand_app_bar.dart';
 import 'package:craft_climb/features/courses/presentation/pages/my_course/course_detail_page.dart';
 import 'package:craft_climb/features/trainer/presentation/widgets/course_card.dart';
@@ -9,6 +8,7 @@ class MyCoursePage extends StatelessWidget {
   static Route route() {
     return MaterialPageRoute(builder: (context) => const MyCoursePage());
   }
+
   const MyCoursePage({super.key});
 
   @override
@@ -21,7 +21,7 @@ class MyCoursePage extends StatelessWidget {
         //Course List
         Expanded(
           child: ListView.builder(
-            padding: EdgeInsets.all(context.spacing24),
+            padding: EdgeInsets.all(16),
             physics: const BouncingScrollPhysics(),
             itemCount: 10,
             itemBuilder: (context, index) => TrainerCourseCard(

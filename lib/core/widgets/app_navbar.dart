@@ -30,7 +30,7 @@ class AppNavbar extends StatelessWidget {
           BottomNavigationBarItem(
             icon: Image.asset(AppImages.jobs, width: 20),
             activeIcon: Image.asset(
-              AppImages.jobs,
+              AppImages.forum,
               width: 22,
               color: AppPallete.accent,
             ),
@@ -47,15 +47,6 @@ class AppNavbar extends StatelessWidget {
             label: 'Tools',
           ),
           BottomNavigationBarItem(
-            icon: Image.asset(AppImages.forum, width: 20),
-            activeIcon: Image.asset(
-              AppImages.forum,
-              width: 22,
-              color: AppPallete.accent,
-            ),
-            label: 'Forum',
-          ),
-          BottomNavigationBarItem(
             icon: Image.asset(AppImages.carrerHub, width: 20),
             activeIcon: Image.asset(
               AppImages.carrerHub,
@@ -63,7 +54,7 @@ class AppNavbar extends StatelessWidget {
               color: AppPallete.accent,
             ),
             label: 'Career',
-          ), 
+          ),
 
           BottomNavigationBarItem(
             icon: Image.asset(AppImages.profile, width: 20),
@@ -104,15 +95,6 @@ class AppNavbar extends StatelessWidget {
               color: AppPallete.accent,
             ),
             label: 'Tools',
-          ),
-          BottomNavigationBarItem(
-            icon: Image.asset(AppImages.forum, width: 20),
-            activeIcon: Image.asset(
-              AppImages.forum,
-              width: 22,
-              color: AppPallete.accent,
-            ),
-            label: 'Forum',
           ),
 
           BottomNavigationBarItem(
@@ -157,15 +139,7 @@ class AppNavbar extends StatelessWidget {
             ),
             label: 'Tools',
           ),
-          BottomNavigationBarItem(
-            icon: Image.asset(AppImages.forum, width: 20),
-            activeIcon: Image.asset(
-              AppImages.forum,
-              width: 22,
-              color: AppPallete.accent,
-            ),
-            label: 'Forum',
-          ),
+
           BottomNavigationBarItem(
             icon: Image.asset(AppImages.carrerHub, width: 20),
             activeIcon: Image.asset(
@@ -217,15 +191,7 @@ class AppNavbar extends StatelessWidget {
             ),
             label: 'Tools',
           ),
-          BottomNavigationBarItem(
-            icon: Image.asset(AppImages.forum, width: 20),
-            activeIcon: Image.asset(
-              AppImages.forum,
-              width: 22,
-              color: AppPallete.accent,
-            ),
-            label: 'Forum',
-          ),
+
           BottomNavigationBarItem(
             icon: Image.asset(AppImages.myCourse, width: 20),
             activeIcon: Image.asset(

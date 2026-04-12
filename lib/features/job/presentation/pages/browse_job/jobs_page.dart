@@ -134,6 +134,7 @@ class _JobsPageState extends State<JobsPage> {
                         ),
                       )
                     : ListView.builder(
+                      padding: EdgeInsets.zero,
                         itemCount: filteredJobs.length,
                         itemBuilder: (_, index) => JobCard(
                           title: filteredJobs[index]['title']!,

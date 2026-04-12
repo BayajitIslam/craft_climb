@@ -2,7 +2,6 @@ import 'package:craft_climb/core/local_storage/local_storage.dart';
 import 'package:craft_climb/core/utils/app_bg.dart';
 import 'package:craft_climb/core/widgets/app_navbar.dart';
 import 'package:craft_climb/features/account/presentation/pages/employer/employer_account_page.dart';
-import 'package:craft_climb/features/employer/presentation/pages/employer_dashboard_page.dart';
 import 'package:craft_climb/features/forum/presentation/pages/forum_page.dart';
 import 'package:craft_climb/features/job/presentation/pages/create_job/my_job_page.dart';
 import 'package:craft_climb/features/tools/presentation/pages/tools_page.dart';
@@ -26,11 +25,10 @@ class _EmployerHomePageState extends State<EmployerHomePage> {
 
   //PAGES
   final List<Widget> pages = [
-    EmployerDashboardPage(),
+    ForumPage(),
     MyJobPage(),
     ToolsPage(),
-    ForumPage(),
-    EmployerAccountPage()
+    EmployerAccountPage(),
   ];
 
   @override

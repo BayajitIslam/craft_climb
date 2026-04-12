@@ -6,7 +6,6 @@ import 'package:craft_climb/features/courses/presentation/pages/browse_course/ca
 import 'package:craft_climb/features/forum/presentation/pages/forum_page.dart';
 import 'package:craft_climb/features/job/presentation/pages/browse_job/jobs_page.dart';
 import 'package:craft_climb/features/tools/presentation/pages/tools_page.dart';
-import 'package:craft_climb/features/trade_person/presentation/pages/trade_person_dashboard_page.dart';
 import 'package:flutter/material.dart';
 
 class TradePersonHomePage extends StatefulWidget {
@@ -27,12 +26,9 @@ class _TradePersonHomePageState extends State<TradePersonHomePage> {
 
   //PAGES
   List<Widget> get pages => [
-    TradePersonDashboardPage(
-      onNavigate: (index) => setState(() => selectedIndex = index),
-    ),
+    ForumPage(),
     JobsPage(),
     ToolsPage(),
-    ForumPage(),
     CareerHubPage(),
     TradePersonAccountPage(),
   ];

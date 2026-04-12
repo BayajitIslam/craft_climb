@@ -19,7 +19,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     required this.name,
     required this.role,
     this.badge,
-    this.backgroundColor = AppPallete.accent,
+    this.backgroundColor = AppPallete.transparent,
     this.onChat,
     this.onNotification,
     this.onBadge,
@@ -31,32 +31,43 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      actionsPadding: EdgeInsets.only(right: context.spacing12),
+      actionsPadding: EdgeInsets.only(right: 12),
       backgroundColor: backgroundColor,
       elevation: 0,
       automaticallyImplyLeading: false,
+      forceMaterialTransparency: true,
       title: Padding(
         padding: EdgeInsets.only(left: context.spacing8),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
+
           children: [
             Text(
               '$name,',
-              style: AppTextStyle.s24w7i(
-                color: AppPallete.primary,
-                fontSize: 20,
-              ),
+              style: AppTextStyle.s24w7i(color: AppPallete.black, fontSize: 20),
             ),
             Text(
               role,
               style: AppTextStyle.s14w4i(
-                color: AppPallete.stroke,
+                color: AppPallete.black75,
                 fontSize: 12,
               ),
             ),
           ],
         ),
       ),
+      leading: Padding(
+        padding: EdgeInsets.only(left: 12),
+        child: CircleAvatar(
+          radius: 18,
+          backgroundImage: const NetworkImage(
+            'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100',
+          ),
+          backgroundColor: AppPallete.accent10,
+        ),
+      ),
+      leadingWidth: 66,
+
       actions: [
         // Badge — optional
         if (badge != null)
@@ -93,7 +104,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
         // Chat
         GestureDetector(
-          onTap: (){
+          onTap: () {
             Navigator.push(context, ConversationsPage.route());
           },
           child: Container(

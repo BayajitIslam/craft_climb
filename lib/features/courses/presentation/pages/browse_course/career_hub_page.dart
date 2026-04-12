@@ -94,12 +94,13 @@ class _CareerHubPageState extends State<CareerHubPage> {
           // ── Grid ──
           Expanded(
             child: GridView.builder(
+              padding: EdgeInsets.zero,
               itemCount: courses.length,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
                 mainAxisSpacing: 16,
                 crossAxisSpacing: 12,
-                mainAxisExtent: 175
+                mainAxisExtent: 175,
               ),
               itemBuilder: (_, index) => CourseCard(
                 title: courses[index]['title'],

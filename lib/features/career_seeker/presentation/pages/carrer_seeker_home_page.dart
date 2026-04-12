@@ -2,7 +2,6 @@ import 'package:craft_climb/core/local_storage/local_storage.dart';
 import 'package:craft_climb/core/utils/app_bg.dart';
 import 'package:craft_climb/core/widgets/app_navbar.dart';
 import 'package:craft_climb/features/account/presentation/pages/carrer_seeker/carrer_seeker_account_page.dart';
-import 'package:craft_climb/features/career_seeker/presentation/pages/carrer_seeker_dashboard_page.dart';
 import 'package:craft_climb/features/courses/presentation/pages/browse_course/career_hub_page.dart';
 import 'package:craft_climb/features/forum/presentation/pages/forum_page.dart';
 import 'package:craft_climb/features/job/presentation/pages/browse_job/jobs_page.dart';
@@ -26,12 +25,9 @@ class _CarrerSeekerHomePageState extends State<CarrerSeekerHomePage> {
   int selectedIndex = 0;
   //PAGES LIST
   List<Widget> get pages => [
-    CareerSeekerDashboardPage(
-      onNavigate: (index) => setState(() => selectedIndex = index),
-    ),
+    ForumPage(),
     JobsPage(),
     ToolsPage(),
-    ForumPage(),
     CareerHubPage(),
     CarrerSeekerAccountPage(),
   ];
